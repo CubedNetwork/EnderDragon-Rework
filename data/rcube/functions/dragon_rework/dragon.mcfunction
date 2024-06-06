@@ -13,7 +13,6 @@ execute if entity @s[tag=dragon_rework.music] if entity @s[tag=dragon_rework.MAD
 # Health handling
 execute store result score @s rcube.dragonRework_dragonHealth run data get entity @s Health
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=..499},tag=!dragon_rework.music] run playsound rcube:dragon_rework/fight1 record @a ~ ~ ~ 1 1 1
-execute if entity @s[scores={rcube.dragonRework_dragonHealth=..499},tag=!dragon_rework.music] run function rcube:dragon_rework/dragontitle
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=..499},tag=!dragon_rework.music] run tag @s add dragon_rework.music
 execute if entity @s[tag=dragon_rework.music] run stopsound @a music
 
