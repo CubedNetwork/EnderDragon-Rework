@@ -22,8 +22,10 @@ tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rew
 execute as @e[tag=dragon_rework.endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 
 # Arrow Dodging
-execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:arrow,distance=..5] run tp ^1 ^ ^
-execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=arrow,distance=..5]
+execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:arrow,distance=..5] run summon marker ~ ~ ~ {Tags:["dragon_rework.arrowDodge.arrow"]}
+execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=minecraft:arrow,distance=..5]
+execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^1 ^ ^
+kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Stop the music if the Ender Dragon is dead
 execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/fight1
