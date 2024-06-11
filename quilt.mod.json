@@ -3,7 +3,7 @@
   "quilt_loader": {
     "group": "au.rcube",
     "id": "dragon_rework",
-    "version": "0.1.0",
+    "version": "0.12.8",
     "metadata": {
       "name": "Ender Dragon Rework",
       "description": "An up in difficulty for Minecraft's final boss.\nWith more health and more attacks, the fight finally feels like the final confrontation.",
