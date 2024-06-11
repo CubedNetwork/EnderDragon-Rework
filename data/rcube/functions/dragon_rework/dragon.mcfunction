@@ -23,6 +23,7 @@ execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] unless ent
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] unless entity @s[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/fight1
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] unless entity @s[tag=dragon_rework.MAD] run playsound rcube:dragon_rework/fight2 record @a ~ ~ ~ 1 1 1
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
+execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] unless entity @s[tag=dragon_rework.MAD] unless entity @s[tag=dragon_rework.spawnedMiniboss] run function rcube:dragon_rework/attacks/mad/miniboss/summon
 execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
 # Handle becoming invunerable
