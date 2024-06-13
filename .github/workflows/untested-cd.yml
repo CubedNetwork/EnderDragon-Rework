@@ -13,13 +13,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Zip Jar
-        run: mkdir zip | zip -r "zip/Ender Dragon Rework.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties"
+        run: mkdir jar | zip -r "jar/Ender Dragon Rework.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "pack.png"
 
-      - name: Upload Artifact
+      - name: Separate Datapack
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework - Datapack.zip" ./ -x "assets/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json"
+
+      - name: Separate Resources
+        run: zip -r "zip/Ender Dragon Rework - Resources.zip" ./ -x "data/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json"
+
+      - name: Upload Jarfile
         uses: actions/upload-artifact@v4.3.3
         with:
           name: Ender Dragon Rework - UNTESTED
-          path: zip/Ender Dragon Rework.jar 
+          path: jar/Ender Dragon Rework.jar 
           # path: |
           #   *
           #   !.git/*
@@ -28,3 +34,9 @@ jobs:
           #   !.gitignore
           #   !zip/*
           #   !README.md
+
+      - name: Upload Datapack + Resources
+        uses: actions/upload-artifact@v4.3.3
+        with:
+          name: Ender Dragon Rework - UNTESTED (Data + Resources)
+          path: zip/*
