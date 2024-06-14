@@ -5,8 +5,7 @@
 # Ran as: Entity, Player (player.musicMad = false)
 
 # Play
-playsound rcube:dragon_rework/phase2 record @s ~ ~ ~ 1 1 1
-tag @s add dragon_rework.player.musicMad
+execute if entity @s[tag=dragon_rework.player.musicMad.loop] run playsound rcube:dragon_rework/phase2 record @s ~ ~ ~ 1 1 1
 
 # Loop track
-schedule function rcube:dragon_rework/sch/music/phase2 5131t append
+execute if entity @s[tag=dragon_rework.player.musicMad.loop] run schedule function rcube:dragon_rework/sch/music/phase2 5131t append

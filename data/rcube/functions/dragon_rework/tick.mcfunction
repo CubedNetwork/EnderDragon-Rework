@@ -39,7 +39,9 @@ execute unless entity @e[tag=dragon_rework.MAD] run schedule clear rcube:dragon_
 execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/phase1
 execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/phase2
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music.loop
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad] remove dragon_rework.player.musicMad
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad] remove dragon_rework.player.musicMad.loop
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.removeAfterDeath]
 
