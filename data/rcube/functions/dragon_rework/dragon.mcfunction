@@ -29,11 +29,6 @@ execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 
 # Handle becoming invunerable
 execute if entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:1b}
 
-# Handle Death
-execute if entity @s[scores={rcube.dragonRework_dragonHealth=0}] run stopsound @a record rcube:dragon_rework/fight1
-execute if entity @s[scores={rcube.dragonRework_dragonHealth=0}] run stopsound @a record rcube:dragon_rework/fight2
-kill @e[tag=dragon_rework.removeAfterDeath]
-
 # Remove beds
 execute unless entity @e[tag=dragon_rework.storeBedSuccess] run summon marker 0 0 0 {Tags:["dragon_rework.storeBedSuccess","dragon_rework.removeAfterDeath"]}
 execute store success score @e[tag=dragon_rework.storeBedSuccess] rcube.dragonRework_storeBedSuccess run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds

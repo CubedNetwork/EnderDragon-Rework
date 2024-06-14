@@ -1,4 +1,4 @@
-# Made by: @rcube.
+e# Made by: @rcube.
 #
 # Called By: #minecraft:tick
 
@@ -27,9 +27,10 @@ execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=minecraft:arr
 execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^1 ^ ^
 kill @e[tag=dragon_rework.arrowDodge.arrow]
 
-# Stop the music if the Ender Dragon is dead
+# Handle Death
 execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/fight1
 execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/fight2
+execute unless entity @e[tag=dragon_rework.dragonInit] kill @e[tag=dragon_rework.removeAfterDeath]
 
 # Miniboss Bossbars
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss max run data get entity @s Attributes[3].Base
