@@ -33,12 +33,11 @@ execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 
 execute if entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:1b}
 
 # Remove beds
-execute unless entity @e[tag=dragon_rework.storeBedSuccess] run summon marker 0 0 0 {Tags:["dragon_rework.storeBedSuccess","dragon_rework.removeAfterDeath"]}
-execute store success score @e[tag=dragon_rework.storeBedSuccess] rcube.dragonRework_storeBedSuccess run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
-execute if score @e[tag=dragon_rework.storeBedSuccess,limit=1] rcube.dragonRework_storeBedSuccess matches 1 run title @a[distance=..20] times 5t 1s 10t
-execute if score @e[tag=dragon_rework.storeBedSuccess,limit=1] rcube.dragonRework_storeBedSuccess matches 1 run title @a[distance=..20] title ""
-execute if score @e[tag=dragon_rework.storeBedSuccess,limit=1] rcube.dragonRework_storeBedSuccess matches 1 run title @a[distance=..20] subtitle {"text":"All beds near dragon will be removed","color":"red"}
-execute if score @e[tag=dragon_rework.storeBedSuccess,limit=1] rcube.dragonRework_storeBedSuccess matches 1 run scoreboard players set @e[tag=dragon_rework.storeBedSuccess] rcube.dragonRework_storeBedSuccess 0
+execute store success score success.bed rcube.dragonRework_store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
+execute if score success.bed rcube.dragonRework_store matches 1 run title @a[distance=..20] times 5t 1s 10t
+execute if score success.bed rcube.dragonRework_store matches 1 run title @a[distance=..20] title ""
+execute if score success.bed rcube.dragonRework_store matches 1 run title @a[distance=..20] subtitle {"text":"All beds near dragon will be removed","color":"red"}
+execute if score success.bed rcube.dragonRework_store matches 1 run scoreboard players set success.bed rcube.dragonRework_store 0
 
 # Miniboss check
 execute if entity @e[tag=dragon_rework.miniboss] run tp 0 100 0
