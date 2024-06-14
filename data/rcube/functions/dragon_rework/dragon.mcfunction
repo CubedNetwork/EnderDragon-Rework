@@ -28,7 +28,7 @@ execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[pred
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMad] run schedule clear rcube:dragon_rework/sch/phase1
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMad] run tag @s add dragon_rework.player.musicMad.loop
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMad] run function rcube:dragon_rework/sch/music/phase2
-execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMad] run tag @s add dragon_rework.player.musicMad
+execute if entity @s[scores={rcube.dragonRework_dragonHealth=0..250}] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMad,tag=dragon_rework.player.musicMad.loop] run tag @s add dragon_rework.player.musicMad
 # If player dies
 execute as @a[predicate=!rcube:dragon_rework/end_centre] run tag @s remove dragon_rework.player.musicMad.loop
 execute as @a[predicate=!rcube:dragon_rework/end_centre] run tag @s remove dragon_rework.player.musicMad
