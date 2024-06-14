@@ -22,10 +22,15 @@ tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rew
 execute as @e[tag=dragon_rework.endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 
 # Arrow Dodging
-execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:arrow,distance=..5] run summon marker ~ ~ ~ {Tags:["dragon_rework.arrowDodge.arrow"]}
+# Remove Arrow
+execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:arrow,distance=..5] at @e[type=minecraft:arrow,distance=..5] run summon marker ~ ~ ~ {Tags:["dragon_rework.arrowDodge.arrow"]}
 execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=minecraft:arrow,distance=..5]
-execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^1 ^ ^
+execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
+# Randomise Direction
+execute if score RNG.arrow rcube.dragonRework_store matches 0 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^3 ^ ^-3
+execute if score RNG.arrow rcube.dragonRework_store matches 1 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^-3 ^ ^3
 kill @e[tag=dragon_rework.arrowDodge.arrow]
+execute if score RNG.arrow rcube.dragonRework_store matches 1 run scoreboard players set RNG.arrow rcube.dragonRework_store 0
 
 # Handle Death
 # Music
@@ -33,8 +38,8 @@ execute unless entity @e[tag=dragon_rework.music] run schedule clear rcube:drago
 execute unless entity @e[tag=dragon_rework.MAD] run schedule clear rcube:dragon_rework/sch/phase2
 execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/phase1
 execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/phase2
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.music] remove dragon_rework.player.music
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.musicMad] remove dragon_rework.player.musicMad
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad] remove dragon_rework.player.musicMad
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.removeAfterDeath]
 
@@ -46,5 +51,4 @@ execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:drago
 bossbar set rcube:dragon_rework.miniboss players @a
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
-#execute in minecraft:the_end unless entity @e[tag=monumentMarker] run summon minecraft:armor_stand 0 200 0 {Tags:["monumentMarker"],Marker:1b,Invisible:1}
-execute as @e[tag=dragon_rework.monumentMarker] at @s if block ~ ~-1 ~ air run tp ~
+execute as @e[tag=dragon_rework.monumentMarker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
