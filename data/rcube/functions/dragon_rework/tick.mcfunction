@@ -1,4 +1,4 @@
-e# Made by: @rcube.
+# Made by: @rcube.
 #
 # Called By: #minecraft:tick
 
@@ -28,9 +28,15 @@ execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework
 kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Handle Death
-execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/fight1
-execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/fight2
-execute unless entity @e[tag=dragon_rework.dragonInit] kill @e[tag=dragon_rework.removeAfterDeath]
+# Music
+execute unless entity @e[tag=dragon_rework.music] run schedule clear rcube:dragon_rework/sch/phase1
+execute unless entity @e[tag=dragon_rework.MAD] run schedule clear rcube:dragon_rework/sch/phase2
+execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/phase1
+execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/phase2
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.music] remove dragon_rework.player.music
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.musicMad] remove dragon_rework.player.musicMad
+# Remove left-over entities
+execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.removeAfterDeath]
 
 # Miniboss Bossbars
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss max run data get entity @s Attributes[3].Base

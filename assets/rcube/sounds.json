@@ -1,16 +1,16 @@
 {
-	"dragon_rework.fight1": {
+	"dragon_rework.phase1": {
 		"replace": false,
 		"catagory" : "record",
 		"sounds" : [
-			"rcube:dragon_rework/fight1"
+			"rcube:dragon_rework/phase1"
 		]
 	},
-	"dragon_rework.fight2": {
+	"dragon_rework.phase2": {
 		"replace": false,
 		"catagory" : "record",
 		"sounds" : [
-			"rcube:dragon_rework/fight2"
+			"rcube:dragon_rework/phase2"
 		]
 	}
 }
