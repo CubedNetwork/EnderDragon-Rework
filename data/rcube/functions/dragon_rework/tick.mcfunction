@@ -1,12 +1,12 @@
 # Made by: @rcube.
 #
 # Called By: #minecraft:tick
+# Ran as: Server
 
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_dragonAttackTimer 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_customDragonPhase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
-execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run kill @e[tag=dragon_rework.crystal]
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
 execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] in minecraft:the_end run function rcube:dragon_rework/dragon
@@ -15,7 +15,7 @@ execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] in minec
 #execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate rcube:dragon_rework/is_aggro run say hi
 
 # Register End Crystal locations
-execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal"]}
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.removeAfterDeath"]}
 tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rework.crystalInit
 
 # End Zombies
@@ -47,4 +47,4 @@ bossbar set rcube:dragon_rework.miniboss players @a
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
 #execute in minecraft:the_end unless entity @e[tag=monumentMarker] run summon minecraft:armor_stand 0 200 0 {Tags:["monumentMarker"],Marker:1b,Invisible:1}
-execute as @e[tag=dragon_rework.monumentMarker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
+execute as @e[tag=dragon_rework.monumentMarker] at @s if block ~ ~-1 ~ air run tp ~
