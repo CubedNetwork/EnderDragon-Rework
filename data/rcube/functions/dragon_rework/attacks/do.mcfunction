@@ -1,3 +1,9 @@
+# Made by: @rcube.
+# Run attacks
+#
+# Called By: rcube:dragon_rework/attacks/do
+# Ran as: Entity, Ender Dragon (mad = true)
+
 # Check and run
 execute if entity @s[scores={rcube.dragonRework_customDragonPhase=1}] in minecraft:the_end at @s run function rcube:dragon_rework/attacks/normal/enderman_aggro
 execute if entity @s[scores={rcube.dragonRework_customDragonPhase=2}] in minecraft:the_end at @s run function rcube:dragon_rework/attacks/normal/end_zombie

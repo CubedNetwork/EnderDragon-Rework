@@ -1,7 +1,7 @@
 # Made by: @rcube.
 # Aggro 5 endermen per player, max of 3
 #
-# Called By: rcube:dragon_rework/attacks/do_mad
+# Called By: rcube:dragon_rework/attacks/do
 # Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_customDragonPhase=1})
 
 # choose 3 players

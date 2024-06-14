@@ -1,1 +1,7 @@
+# Made by: @rcube.
+# Zeus strikes back.
+#
+# Called By: rcube:dragon_rework/attacks/do_mad
+# Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_customDragonPhase=5})
+
 teleport @s @e[tag=dragon_rework.crystal,sort=random,limit=1]
