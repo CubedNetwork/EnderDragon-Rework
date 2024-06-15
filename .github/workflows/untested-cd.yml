@@ -16,10 +16,10 @@ jobs:
         run: mkdir jar | zip -r "jar/Ender Dragon Rework.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "pack.png" ".gitignore"
 
       - name: Separate Datapack
-        run: mkdir zip | zip -r "zip/Ender Dragon Rework - Datapack.zip" ./ -x "assets/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json" ".gitignore"
+        run: mkdir zip | zip -r "zip/Ender Dragon Rework - Datapack.zip" ./ -x "assets/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "jar/*"" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json" ".gitignore"
 
       - name: Separate Resources
-        run: zip -r "zip/Ender Dragon Rework - Resources.zip" ./ -x "data/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json" ".gitignore"
+        run: zip -r "zip/Ender Dragon Rework - Resources.zip" ./ -x "data/*" ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "jar/*" "README.md" "version.properties" "fabric.mod.json" "quilt.mod.json" ".gitignore"
 
       - name: Upload Jarfile
         uses: actions/upload-artifact@v4.3.3
