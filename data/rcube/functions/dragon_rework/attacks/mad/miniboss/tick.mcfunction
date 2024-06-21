@@ -9,7 +9,7 @@
 # #####################
 execute if entity @s[scores={rcube.dragonRework_dragonHealth=..499}] run scoreboard players remove @s rcube.dragonRework_attackTimer 1
 execute if entity @s[scores={rcube.dragonRework_attackTimer=0}] run function rcube:dragon_rework/attacks/do
-execute if entity @s[scores={rcube.dragonRework_attackTimer=0}] run scoreboard players set @s rcube.dragonRework_attackTimer 500
+execute if entity @s[scores={rcube.dragonRework_attackTimer=0}] run scoreboard players set @s rcube.dragonRework_attackTimer 900
 
 
 
