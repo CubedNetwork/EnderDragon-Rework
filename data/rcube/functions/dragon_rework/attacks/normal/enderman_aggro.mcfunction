@@ -5,14 +5,14 @@
 # Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_phase=1})
 
 # choose 3 players
-execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM
-execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM
-execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM
+execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM
+execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM
+execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM
 
 # label victims 1 to 3
-execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_2,tag=!dragon_rework.VICTIM_3,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM_1
-execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_1,tag=!dragon_rework.VICTIM_3,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM_2
-execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_1,tag=!dragon_rework.VICTIM_2,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM_3
+execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_2,tag=!dragon_rework.VICTIM_3,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM_1
+execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_1,tag=!dragon_rework.VICTIM_3,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM_2
+execute at @s run tag @r[tag=dragon_rework.VICTIM,tag=!dragon_rework.VICTIM_1,tag=!dragon_rework.VICTIM_2,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.VICTIM_3
 
 # choose 10 endermen per player
 execute at @r[tag=dragon_rework.VICTIM_1] run tag @e[type=minecraft:enderman,sort=nearest,limit=5,tag=!dragon_rework.ANGRY_2,tag=!dragon_rework.ANGRY_3] add dragon_rework.ANGRY_1
