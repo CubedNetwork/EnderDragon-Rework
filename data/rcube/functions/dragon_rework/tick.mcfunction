@@ -15,7 +15,7 @@ execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] in minec
 #execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate rcube:dragon_rework/is_aggro run say hi
 
 # Register End Crystal locations
-execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.removeAfterDeath"]}
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
 tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rework.crystalInit
 
 # End Zombies
@@ -43,7 +43,7 @@ execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rew
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad] remove dragon_rework.player.musicMad
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad.loop] remove dragon_rework.player.musicMad.loop
 # Remove left-over entities
-execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.removeAfterDeath]
+execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.remove]
 
 # Miniboss Bossbars
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss max run data get entity @s Attributes[3].Base
