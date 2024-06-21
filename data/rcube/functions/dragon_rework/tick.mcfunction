@@ -18,8 +18,8 @@ execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] in minec
 execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
 tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rework.crystalInit
 
-# End Zombies
-execute as @e[tag=dragon_rework.endZombie] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
+# End Zombies & Miniboss Minions
+execute as @e[tag=dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 
 # Arrow Dodging
 # Remove Arrow

@@ -5,11 +5,11 @@
 # Ran as: Entity(custom), Miniboss
 
 # Check and run
-# execute if entity @s[scores={rcube.dragonRework_phase=1}] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/arrow_rain
+execute if entity @s[scores={rcube.dragonRework_phase=1}] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/minions
 # Fling
 execute if entity @s[scores={rcube.dragonRework_phase=2},tag=!dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=1] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/do
 execute if entity @s[scores={rcube.dragonRework_phase=2},tag=dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=2] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/do
-# execute if entity @s[scores={rcube.dragonRework_phase=3}] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/minions
+# execute if entity @s[scores={rcube.dragonRework_phase=3}] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/arrow_rain
 
 # Increment + Cap phase
 scoreboard players add @s rcube.dragonRework_phase 1
