@@ -3,7 +3,6 @@
 #
 # Called By:
 #   rcube:dragon_rework/attacks/mad/lightning_start
-#   rcube:dragon_rework/attacks/mad/anvil
 # Ran as: Player (predicate, end_centre = true)
 
 playsound entity.experience_orb.pickup master @s ~ ~ ~ 1 1 1
