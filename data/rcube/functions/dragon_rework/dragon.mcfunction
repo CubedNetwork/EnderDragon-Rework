@@ -5,10 +5,10 @@
 # Ran as: Entity, Ender Dragon (dragonInit = true)
 
 # Timer + Attack handling
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube.dragonRework_dragonHealth=..499}] run scoreboard players remove @s rcube.dragonRework_dragonAttackTimer 1
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube.dragonRework_dragonAttackTimer=0}] run function rcube:dragon_rework/attacks/do
-execute if entity @s[tag=dragon_rework.dragonInit] unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube.dragonRework_dragonAttackTimer=0}] run scoreboard players set @s rcube.dragonRework_dragonAttackTimer 400
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube.dragonRework_dragonAttackTimer=0}] run scoreboard players set @s rcube.dragonRework_dragonAttackTimer 200
+execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube.dragonRework_dragonHealth=..499}] run scoreboard players remove @s rcube.dragonRework_attackTimer 1
+execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube.dragonRework_attackTimer=0}] run function rcube:dragon_rework/attacks/do
+execute if entity @s[tag=dragon_rework.dragonInit] unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube.dragonRework_attackTimer=0}] run scoreboard players set @s rcube.dragonRework_attackTimer 400
+execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube.dragonRework_attackTimer=0}] run scoreboard players set @s rcube.dragonRework_attackTimer 200
 
 # Health handling
 execute store result score @s rcube.dragonRework_dragonHealth run data get entity @s Health

@@ -2,7 +2,7 @@
 # Aggro 5 endermen per player, max of 3
 #
 # Called By: rcube:dragon_rework/attacks/do
-# Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_customDragonPhase=1})
+# Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_phase=1})
 
 # choose 3 players
 execute at @s run tag @r[tag=!dragon_rework.VICTIM,predicate=rcube:dragon_rework/end_centre] add dragon_rework.VICTIM
