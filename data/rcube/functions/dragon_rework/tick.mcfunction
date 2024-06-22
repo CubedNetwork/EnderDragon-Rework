@@ -27,10 +27,11 @@ execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:ar
 execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=minecraft:arrow,distance=..5]
 execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
 # Randomise Direction
+execute if predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube.dragonRework_store 1
+execute unless predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube.dragonRework_store 0
 execute if score RNG.arrow rcube.dragonRework_store matches 0 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^3 ^ ^-3
 execute if score RNG.arrow rcube.dragonRework_store matches 1 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^-3 ^ ^3
 kill @e[tag=dragon_rework.arrowDodge.arrow]
-execute if score RNG.arrow rcube.dragonRework_store matches 1 run scoreboard players set RNG.arrow rcube.dragonRework_store 0
 
 # Handle Death
 # Music
