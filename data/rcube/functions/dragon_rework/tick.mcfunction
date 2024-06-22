@@ -4,8 +4,8 @@
 # Ran as: Server
 
 # Dragon Init
-scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_attackTimer 800
-scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube.dragonRework_phase 1
+scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.attackTimer 800
+scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
@@ -27,10 +27,10 @@ execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[type=minecraft:ar
 execute as @e[tag=dragon_rework.arrowDodge] at @s run kill @e[type=minecraft:arrow,distance=..5]
 execute as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
 # Randomise Direction
-execute if predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube.dragonRework_store 1
-execute unless predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube.dragonRework_store 0
-execute if score RNG.arrow rcube.dragonRework_store matches 0 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^3 ^ ^-3
-execute if score RNG.arrow rcube.dragonRework_store matches 1 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^-3 ^ ^3
+execute if predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 1
+execute unless predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 0
+execute if score RNG.arrow rcube_dragonRework.store matches 0 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^3 ^ ^-3
+execute if score RNG.arrow rcube_dragonRework.store matches 1 as @e[tag=dragon_rework.arrowDodge] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..5] run tp ^-3 ^ ^3
 kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Handle Death

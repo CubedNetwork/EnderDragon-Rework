@@ -7,10 +7,10 @@
 tellraw @a {"text":"Dragon Rework","color":"dark_purple"}
 
 # Data
-scoreboard objectives add rcube.dragonRework_attackTimer dummy
-scoreboard objectives add rcube.dragonRework_phase dummy
-scoreboard objectives add rcube.dragonRework_dragonHealth dummy
-scoreboard objectives add rcube.dragonRework_store dummy
+scoreboard objectives add rcube_dragonRework.attackTimer dummy
+scoreboard objectives add rcube_dragonRework.phase dummy
+scoreboard objectives add rcube_dragonRework.dragonHealth dummy
+scoreboard objectives add rcube_dragonRework.store dummy
 
 # Miniboss Bossbar
 bossbar add rcube:dragon_rework.miniboss {"text":"Warrior of Years Past","color":"red","bold":false,"italic":false,"underlined":false}

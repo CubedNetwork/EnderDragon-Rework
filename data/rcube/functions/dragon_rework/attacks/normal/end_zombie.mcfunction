@@ -2,7 +2,7 @@
 # X
 #
 # Called By: rcube:dragon_rework/attacks/do
-# Ran as: Entity, Ender Dragon (scores={rcube.dragonRework_phase=2})
+# Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=2})
 
 # Speed 2, slow falling 2
 particle smoke ~10 ~-10 ~ 0 0 0 1 100 force
