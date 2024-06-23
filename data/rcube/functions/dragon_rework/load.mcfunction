@@ -11,6 +11,10 @@ scoreboard objectives add rcube_dragonRework.attackTimer dummy
 scoreboard objectives add rcube_dragonRework.phase dummy
 scoreboard objectives add rcube_dragonRework.dragonHealth dummy
 scoreboard objectives add rcube_dragonRework.store dummy
+scoreboard objectives add rcube_dragonRework.UUID0 dummy
+scoreboard objectives add rcube_dragonRework.UUID1 dummy
+scoreboard objectives add rcube_dragonRework.UUID2 dummy
+scoreboard objectives add rcube_dragonRework.UUID3 dummy
 
 # Miniboss Bossbar
 bossbar add rcube:dragon_rework.miniboss {"text":"Warrior of Years Past","color":"red","bold":false,"italic":false,"underlined":false}

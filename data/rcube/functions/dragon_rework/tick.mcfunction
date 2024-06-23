@@ -3,6 +3,10 @@
 # Called By: #minecraft:tick
 # Ran as: Server
 
+# General
+execute as @e[tag=dragon_rework.arrowDodge] unless entity @s[tag=dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
+execute as @a[tag=!dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
+
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.attackTimer 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
