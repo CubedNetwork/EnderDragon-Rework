@@ -3,6 +3,9 @@
 # Called By: #minecraft:tick
 # Ran as: Server
 
+# Save UUID
+execute as @e[tag=dragon_rework.arrowDodge] unless entity @s[tag=dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
+execute as @a[tag=!dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
 
 # Register End Crystal locations
 execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] unless entity @e[tag=dragon_rework.dragonInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
