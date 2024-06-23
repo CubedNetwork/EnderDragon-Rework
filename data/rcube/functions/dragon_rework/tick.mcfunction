@@ -35,14 +35,13 @@ kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Handle Death
 # Music
-execute unless entity @e[tag=dragon_rework.music] run schedule clear rcube:dragon_rework/sch/phase1
-execute unless entity @e[tag=dragon_rework.MAD] run schedule clear rcube:dragon_rework/sch/phase2
-execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework/phase1
-execute unless entity @e[tag=dragon_rework.MAD] run stopsound @a record rcube:dragon_rework/phase2
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset @s rcube_dragonRework.timer.music
+execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework.phase1
+execute unless entity @e[tag=dragon_rework.music.MAD] run stopsound @a record rcube:dragon_rework.phase2
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music.loop] remove dragon_rework.player.music.loop
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad] remove dragon_rework.player.musicMad
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMad.loop] remove dragon_rework.player.musicMad.loop
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music.timerInit
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.init
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.timerInit
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.remove]
 
