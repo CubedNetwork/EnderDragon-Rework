@@ -9,7 +9,7 @@ scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonI
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
-execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] in minecraft:the_end run function rcube:dragon_rework/dragon
+execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] at @s in minecraft:the_end run function rcube:dragon_rework/dragon
 
 # DEBUG
 #execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate rcube:dragon_rework/is_aggro run say hi
