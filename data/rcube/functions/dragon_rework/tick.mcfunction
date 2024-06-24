@@ -4,7 +4,7 @@
 # Ran as: Server
 
 # Dragon Init
-scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.attackTimer 800
+scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
@@ -44,6 +44,16 @@ execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rew
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.timerInit
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.remove]
+# Reset Scoreboard
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.dragon.health
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.timer.music
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.timer.attacks
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.phase
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.store
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.UUID0
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.UUID1
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.UUID2
+execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.UUID3
 
 # Handle Miniboss Death
 execute unless entity @e[tag=dragon_rework.miniboss] run kill @e[tag=dragon_rework.miniboss.minion]
