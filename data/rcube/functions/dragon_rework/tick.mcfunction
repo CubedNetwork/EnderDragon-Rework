@@ -3,6 +3,11 @@
 # Called By: #minecraft:tick
 # Ran as: Server
 
+
+# Register End Crystal locations
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] unless entity @e[tag=dragon_rework.dragonInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] unless entity @e[tag=dragon_rework.dragonInit] run tag @s add dragon_rework.crystalInit
+
 # Dragon Init
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
@@ -10,13 +15,6 @@ execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run dat
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
 execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] at @s in minecraft:the_end run function rcube:dragon_rework/dragon
-
-# DEBUG
-#execute as @e[type=minecraft:ender_dragon,tag=ticked] if predicate rcube:dragon_rework/is_aggro run say hi
-
-# Register End Crystal locations
-execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
-tag @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit] add dragon_rework.crystalInit
 
 # End Zombies & Miniboss Minions
 execute as @e[tag=dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
@@ -44,6 +42,7 @@ execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rew
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.timerInit
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.remove]
+execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[type=end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre]
 # Reset Scoreboard
 execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.dragon.health
 execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.timer.music
