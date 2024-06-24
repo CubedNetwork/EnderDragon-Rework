@@ -74,6 +74,13 @@ execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless en
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] unless entity @s[tag=dragon_rework.spawnedMiniboss] run function rcube:dragon_rework/attacks/mad/miniboss/summon
 execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
+# End Crystal Caging
+execute if entity @s[tag=!dragon_rework.crystal.recage.phase1,tag=!dragon_rework.MAD] at @e[tag=dragon_rework.crystal] if entity @e[type=end_crystal,distance=..3] rotated ~ 0 run function rcube:dragon_rework/recage
+execute if entity @s[tag=!dragon_rework.crystal.recage.MAD,tag=dragon_rework.MAD] at @e[tag=dragon_rework.crystal] if entity @e[type=end_crystal,distance=..3] rotated ~ 0 run function rcube:dragon_rework/recage
+tag @s add dragon_rework.crystal.recage.phase1
+tag @s add dragon_rework.crystal.recage.MAD
+
+
 # Handle invunerable
 execute if entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:1b}
 execute unless entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:0b}
