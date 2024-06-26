@@ -7,10 +7,11 @@
 tellraw @a {"text":"Dragon Rework","color":"dark_purple"}
 
 # Data
-scoreboard objectives add rcube_dragonRework.attackTimer dummy
+scoreboard objectives add rcube_dragonRework.timer.attacks dummy
 scoreboard objectives add rcube_dragonRework.phase dummy
-scoreboard objectives add rcube_dragonRework.dragonHealth dummy
+scoreboard objectives add rcube_dragonRework.dragon.health dummy
 scoreboard objectives add rcube_dragonRework.store dummy
+scoreboard objectives add rcube_dragonRework.timer.music dummy
 scoreboard objectives add rcube_dragonRework.UUID0 dummy
 scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy

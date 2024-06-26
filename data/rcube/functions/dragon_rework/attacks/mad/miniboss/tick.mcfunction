@@ -7,9 +7,9 @@
 # #####################
 # Abilities
 # #####################
-scoreboard players remove @s rcube_dragonRework.attackTimer 1
-execute if entity @s[scores={rcube_dragonRework.attackTimer=0}] run function rcube:dragon_rework/attacks/do
-execute if entity @s[scores={rcube_dragonRework.attackTimer=0}] run scoreboard players set @s rcube_dragonRework.attackTimer 900
+scoreboard players remove @s rcube_dragonRework.timer.attacks 1
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/do
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 
 
 
