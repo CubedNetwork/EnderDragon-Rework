@@ -47,7 +47,6 @@ execute if entity @s[tag=dragon_rework.music.phase1,tag=!dragon_rework.music] ru
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] run tag @s add dragon_rework.music.MAD
 execute if entity @s[tag=dragon_rework.music.MAD,tag=dragon_rework.music.phase1] run tag @s remove dragon_rework.music.phase1
 execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run stopsound @s record rcube:dragon_rework.phase1
-execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run schedule clear rcube:dragon_rework/sch/phase1
 execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run tag @s add dragon_rework.player.musicMAD.init
 execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD.init] run tag @s add dragon_rework.player.musicMAD
 
