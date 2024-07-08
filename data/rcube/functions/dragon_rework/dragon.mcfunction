@@ -5,10 +5,10 @@
 # Ran as: Entity, Ender Dragon (dragonInit = true)
 
 # Timer + Attack handling
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/do
-execute if entity @s[tag=dragon_rework.dragonInit] unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 400
-execute if entity @s[tag=dragon_rework.dragonInit] if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 200
+execute if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/do
+execute unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 400
+execute if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 200
 
 # Health handling
 execute store result score @s rcube_dragonRework.dragon.health run data get entity @s Health
@@ -81,32 +81,32 @@ execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s record
 # Cage + Respawn
 # #####################
 # Crystal Detection
-execute as @e[tag=dragon_rework.crystal] at @s if entity @e[tag=dragon_rework.crystalInit,distance=..2] run tag @s add dragon_rework.crystal.near
-execute as @e[tag=dragon_rework.crystal] at @s unless entity @e[tag=dragon_rework.crystalInit,distance=..2] run tag @s remove dragon_rework.crystal.near
+execute as @e[tag=dragon_rework.crystal,type=minecraft:marker] at @s if entity @e[tag=dragon_rework.crystalInit,distance=..2,type=minecraft:end_crystal] run tag @s add dragon_rework.crystal.near
+execute as @e[tag=dragon_rework.crystal,type=minecraft:marker] at @s unless entity @e[tag=dragon_rework.crystalInit,distance=..2,type=minecraft:end_crystal] run tag @s remove dragon_rework.crystal.near
 
 # Cage (Phase 1)
-execute unless entity @s[tag=dragon_rework.dragon.crystalInit.cage] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near] run tag @s add dragon_rework.crystal.cage
+execute unless entity @s[tag=dragon_rework.dragon.crystalInit.cage] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s add dragon_rework.crystal.cage
 execute unless entity @s[tag=dragon_rework.dragon.crystalInit.cage] run tag @s add dragon_rework.dragon.crystalInit.cage
 # Respawn + Cage (MAD)
-execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,sort=random,limit=3] run tag @s add dragon_rework.crystal.respawn
-execute as @e[tag=dragon_rework.crystal.respawn] run summon minecraft:end_crystal ~ ~ ~ {Tags:["dragon_rework.crystalInit"]}
-execute if entity @e[tag=dragon_rework.crystal.respawn] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near] run tag @s add dragon_rework.crystal.cage
+execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,sort=random,limit=3,type=minecraft:marker] run tag @s add dragon_rework.crystal.respawn
+execute as @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] run summon minecraft:end_crystal ~ ~ ~ {Tags:["dragon_rework.crystalInit"]}
+execute if entity @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s add dragon_rework.crystal.cage
 
 # Cage
-execute as @e[tag=dragon_rework.crystal.cage] rotated ~ 0 run function rcube:dragon_rework/crystal/cage
+execute as @e[tag=dragon_rework.crystal.cage,type=minecraft:marker] rotated ~ 0 run function rcube:dragon_rework/crystal/cage
 
 # Clear tags
-tag @e[tag=dragon_rework.crystal.respawn] remove dragon_rework.crystal.respawn
-tag @e[tag=dragon_rework.crystal.cage] remove dragon_rework.crystal.cage
+tag @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] remove dragon_rework.crystal.respawn
+tag @e[tag=dragon_rework.crystal.cage,type=minecraft:marker] remove dragon_rework.crystal.cage
 
 # #####################
 # Minions
 # #####################
 # Summon
-execute as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,tag=!dragon_rework.crystal.destroyed] at @s rotated ~ 0 run function rcube:dragon_rework/crystal/minion
+execute as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,tag=!dragon_rework.crystal.destroyed,type=minecraft:marker] at @s rotated ~ 0 run function rcube:dragon_rework/crystal/minion
 
 # Clear tag if crystal is respawned
-execute as @e[tag=dragon_rework.crystal.near] run tag @s remove dragon_rework.crystal.destroyed
+execute as @e[tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s remove dragon_rework.crystal.destroyed
 
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
@@ -114,8 +114,8 @@ execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless en
 execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
 # Handle invunerable
-execute if entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:1b}
-execute unless entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:0b}
+execute if entity @e[tag=dragon_rework.miniboss,type=minecraft:marker] run data merge entity @s {Invulnerable:1b}
+execute unless entity @e[tag=dragon_rework.miniboss,type=minecraft:marker] run data merge entity @s {Invulnerable:0b}
 
 # Remove beds
 execute store success score success.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds

@@ -18,4 +18,4 @@ bossbar add rcube:dragon_rework.miniboss {"text":"Warrior of Years Past","color"
 bossbar set rcube:dragon_rework.miniboss color yellow
 
 # Monument Marker
-execute in minecraft:the_end unless entity @e[tag=dragon_rework.monumentMarker] run summon marker 0 200 0 {Tags:["dragon_rework.monumentMarker"]}
+execute in minecraft:the_end unless entity @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] run summon marker 0 200 0 {Tags:["dragon_rework.monumentMarker"]}

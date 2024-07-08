@@ -20,7 +20,7 @@ execute facing entity @a[tag=dragon_rework.fireball.VICTIM_2,limit=1,predicate=r
 execute facing entity @a[tag=dragon_rework.fireball.VICTIM_3,limit=1,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] eyes positioned ^ ^ ^17 run function rcube:dragon_rework/sch/fireball/rapid
 
 # clear tags
-tag @e[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_1
-tag @e[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_2
-tag @e[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_3
-tag @e[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM
+tag @a[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_1
+tag @a[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_2
+tag @a[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM_3
+tag @a[tag=dragon_rework.fireball.VICTIM] remove dragon_rework.fireball.VICTIM
