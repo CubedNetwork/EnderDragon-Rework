@@ -32,6 +32,9 @@ execute if entity @s[nbt={HandItems:[{},{id:"minecraft:totem_of_undying",Count:1
 # Heal
 execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run effect give @s instant_damage 1 9 true
 
+# Fix totem visual glitch
+item replace entity @s weapon.offhand with air
+
 # #####################
 # Buff Gear
 # #####################
