@@ -87,7 +87,7 @@ execute unless entity @e[tag=dragon_rework.miniboss] run data merge entity @s {I
 
 # Remove beds
 execute store success score success.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
-execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] times 5t 1s 10t
+execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] times 5 20 10
 execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
 execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All beds near dragon will be removed","color":"red"}
 execute if score success.bed rcube_dragonRework.store matches 1 run scoreboard players set success.bed rcube_dragonRework.store 0
