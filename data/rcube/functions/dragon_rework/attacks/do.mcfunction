@@ -14,4 +14,4 @@ execute if entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/att
 # Increment + Cap phase (only if not mad)
 scoreboard players add @s rcube_dragonRework.phase 1
 execute if entity @s[scores={rcube_dragonRework.phase=5..},tag=!dragon_rework.MAD] run scoreboard players set @s rcube_dragonRework.phase 1
-execute if entity @s[scores={rcube_dragonRework.phase=8..},tag=dragon_rework.MAD] run scoreboard players set @s rcube_dragonRework.phase 1
+execute if entity @s[scores={rcube_dragonRework.phase=9..},tag=dragon_rework.MAD] run scoreboard players set @s rcube_dragonRework.phase 1

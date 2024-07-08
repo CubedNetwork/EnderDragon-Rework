@@ -1,7 +1,7 @@
 # Made by: @rcube.
-# One-hit fireball
+# Boom!
 #
-# Called By: rcube:dragon_rework/attacks/do
+# Called By: rcube:dragon_rework/attacks/normal/fireball
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=3})
 
 # Check if mad -> which fireball to summon
