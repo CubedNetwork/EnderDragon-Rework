@@ -37,12 +37,13 @@ execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players re
 execute unless entity @e[tag=dragon_rework.music] run stopsound @a record rcube:dragon_rework.phase1
 execute unless entity @e[tag=dragon_rework.music.MAD] run stopsound @a record rcube:dragon_rework.phase2
 execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music.timerInit
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.init
-execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD.timerInit
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.music.timerInit] remove dragon_rework.player.music.timerInit
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD] remove dragon_rework.player.musicMAD
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD.init] remove dragon_rework.player.musicMAD.init
+execute unless entity @e[tag=dragon_rework.dragonInit] run tag @a[tag=dragon_rework.player.musicMAD.timerInit] remove dragon_rework.player.musicMAD.timerInit
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[tag=dragon_rework.remove]
-execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[type=end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre]
+execute unless entity @e[tag=dragon_rework.dragonInit] run kill @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre]
 # Reset Scoreboard
 execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.dragon.health
 execute unless entity @e[tag=dragon_rework.dragonInit] run scoreboard players reset * rcube_dragonRework.timer.music
