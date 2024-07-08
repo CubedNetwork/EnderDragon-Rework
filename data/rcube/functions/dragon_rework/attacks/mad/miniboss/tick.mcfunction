@@ -1,7 +1,7 @@
 # Made by: @rcube.
 # Tick miniboss
 #
-# Called By: rcube:dragon_rework/attacks/mad/miniboss/summon (If miniboss exists)
+# Called By: rcube:dragon_rework/tick (If miniboss exists)
 # Ran as: Entity(custom), Miniboss
 
 # #####################
@@ -56,7 +56,3 @@ execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:
 execute if entity @s[tag=dragon_rework.minibossMAD] run effect give @s speed 2 2 true
 execute if entity @s[tag=dragon_rework.minibossMAD] run effect give @s strength 2 2 true
 execute if entity @s[tag=dragon_rework.minibossMAD] run effect give @s resistance 2 1 true
-
-
-# Loop
-schedule function rcube:dragon_rework/attacks/mad/miniboss/tick 1t replace
