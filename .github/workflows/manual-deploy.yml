@@ -54,7 +54,7 @@ jobs:
 
       - name: Publish to GitHub
         if: ${{ !contains(github.ref, '-') }}
-        uses: "softprops/action-gh-release@v2.0.5"
+        uses: "softprops/action-gh-release@v2.0.6"
         with:
           name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
           tag_name: "v${{ steps.mod-version.outputs.version }}"
@@ -64,7 +64,7 @@ jobs:
 
       - name: Publish to GitHub (pre-release)
         if: ${{ contains(github.ref, '-') }}
-        uses: "softprops/action-gh-release@v2.0.5"
+        uses: "softprops/action-gh-release@v2.0.6"
         with:
           name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
           tag_name: "v${{ steps.mod-version.outputs.version }}"
