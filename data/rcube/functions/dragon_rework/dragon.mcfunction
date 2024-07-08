@@ -108,6 +108,13 @@ execute as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,tag=!dra
 # Clear tag if crystal is respawned
 execute as @e[tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s remove dragon_rework.crystal.destroyed
 
+# ##########################
+# Entity Count
+# ##########################
+execute store result score Entity.EndZombie rcube_dragonRework.store if entity @e[tag=dragon_rework.endZombie,type=phantom:zombie]
+execute store result score Entity.CustomPhantom rcube_dragonRework.store if entity @e[tag=dragon_rework.phantom,type=minecraft:phantom]
+execute store result score Entity.CustomMiniboss.Minions rcube_dragonRework.store if entity @e[tag=dragon_rework.phantom,type=minecraft:phantom]
+
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] unless entity @s[tag=dragon_rework.spawnedMiniboss] run function rcube:dragon_rework/attacks/mad/miniboss/summon
