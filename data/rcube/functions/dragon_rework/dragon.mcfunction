@@ -99,6 +99,14 @@ execute as @e[tag=dragon_rework.crystal.cage] rotated ~ 0 run function rcube:dra
 tag @e[tag=dragon_rework.crystal.respawn] remove dragon_rework.crystal.respawn
 tag @e[tag=dragon_rework.crystal.cage] remove dragon_rework.crystal.cage
 
+# #####################
+# Minions
+# #####################
+# Summon
+execute as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,tag=!dragon_rework.crystal.destroyed] at @s rotated ~ 0 run function rcube:dragon_rework/crystal/minion
+
+# Clear tag if crystal is respawned
+execute as @e[tag=dragon_rework.crystal.near] run tag @s remove dragon_rework.crystal.destroyed
 
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
@@ -115,6 +123,3 @@ execute if score success.bed rcube_dragonRework.store matches 1 run title @a[dis
 execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
 execute if score success.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All beds near dragon will be removed","color":"red"}
 execute if score success.bed rcube_dragonRework.store matches 1 run scoreboard players set success.bed rcube_dragonRework.store 0
-
-# Miniboss check
-execute if entity @e[tag=dragon_rework.miniboss] run tp 0 100 0
