@@ -33,7 +33,10 @@ execute if entity @s[nbt={HandItems:[{},{id:"minecraft:totem_of_undying",Count:1
 execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run effect give @s instant_damage 1 9 true
 
 # Fix totem visual glitch
-item replace entity @s weapon.offhand with air
+execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s weapon.offhand with air
+
+# Particles
+execute if entity @s[tag=dragon_rework.minibossMAD] at @s anchored feet rotated ~ 0 run particle minecraft:angry_villager ^ ^ ^ 0.25 0.5 0.25 1 1 force
 
 # #####################
 # Buff Gear
