@@ -66,7 +66,7 @@ execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:drago
 bossbar set rcube:dragon_rework.miniboss players @a
 
 # Tick Miniboss
-execute as @e[tag=dragon_rework.miniboss] run function rcube:dragon_rework/attacks/mad/miniboss/tick
+execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework/attacks/mad/miniboss/tick
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
 execute as @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
