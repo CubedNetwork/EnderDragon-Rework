@@ -61,7 +61,6 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 execute unless entity @e[tag=dragon_rework.miniboss] run kill @e[tag=dragon_rework.miniboss.minion]
 
 # Miniboss Bossbars
-execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss max run data get entity @s Attributes[3].Base
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss value run data get entity @s Health
 execute if entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible true
 execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible false
