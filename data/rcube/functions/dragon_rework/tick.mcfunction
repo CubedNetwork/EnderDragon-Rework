@@ -33,7 +33,7 @@ kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Handle Death
 # Music
-execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset @s rcube_dragonRework.timer.music
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.timer.music
 execute unless entity @e[tag=dragon_rework.music,type=minecraft:ender_dragon] run stopsound @a record rcube:dragon_rework.phase1
 execute unless entity @e[tag=dragon_rework.music.MAD,type=minecraft:ender_dragon] run stopsound @a record rcube:dragon_rework.phase2
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
