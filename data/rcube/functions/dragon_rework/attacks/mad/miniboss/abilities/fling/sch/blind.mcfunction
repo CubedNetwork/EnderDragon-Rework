@@ -5,4 +5,4 @@
 # Ran as: Entity, Player
 
 # Give effect
-effect give @s minecraft:blindness 2 0 true
+effect give @a[tag=dragon_rework.miniboss.VICTIM] minecraft:blindness 2 0 true
