@@ -44,6 +44,8 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run kill @e[tag=dragon_rework.remove]
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run kill @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre]
+# Crystal Tags
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run tag @e[tag=dragon_rework.crystalInit,type=minecraft:end_crystal] remove dragon_rework.crystalInit
 # Reset Scoreboard
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.dragon.health
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.timer.music
