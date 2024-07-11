@@ -115,8 +115,8 @@ execute store result score Entity.EndZombie rcube_dragonRework.store if entity @
 execute store result score Entity.CustomPhantom rcube_dragonRework.store if entity @e[tag=dragon_rework.phantom,type=minecraft:phantom]
 
 # Handle becoming MAD
+execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/attacks/mad/miniboss/summon
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
-execute if entity @s[tag=dragon_rework.MAD] unless entity @s[tag=!dragon_rework.spawnedMiniboss] run function rcube:dragon_rework/attacks/mad/miniboss/summon
 execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
 # Handle invunerable
