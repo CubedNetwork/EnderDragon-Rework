@@ -5,7 +5,7 @@
 # Ran as: Entity(custom), Miniboss
 
 # Check and run
-execute if entity @s[scores={rcube_dragonRework.phase=1}] unless score Entity.CustomMiniboss.Minions rcube_dragonRework.store matches 25 at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/minions
+execute if entity @s[scores={rcube_dragonRework.phase=1}] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/minions
 # Fling
 execute if entity @s[scores={rcube_dragonRework.phase=2},tag=!dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=1,gamemode=!spectator] at @s run tag @s add dragon_rework.miniboss.VICTIM
 execute if entity @s[scores={rcube_dragonRework.phase=2},tag=dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=2,gamemode=!spectator] at @s run tag @s add dragon_rework.miniboss.VICTIM

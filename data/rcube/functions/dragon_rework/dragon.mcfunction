@@ -116,7 +116,6 @@ execute as @e[tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s r
 # ##########################
 execute store result score Entity.EndZombie rcube_dragonRework.store if entity @e[tag=dragon_rework.endZombie,type=minecraft:zombie]
 execute store result score Entity.CustomPhantom rcube_dragonRework.store if entity @e[tag=dragon_rework.phantom,type=minecraft:phantom]
-execute store result score Entity.CustomMiniboss.Minions rcube_dragonRework.store if entity @e[tag=dragon_rework.miniboss.minion]
 
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/attacks/mad/miniboss/summon
