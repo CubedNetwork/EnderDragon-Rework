@@ -12,7 +12,6 @@ execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicat
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
-execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run tag @e[tag=dragon_rework.crystalInit] remove dragon_rework.crystalInit
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
 execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] at @s in minecraft:the_end run function rcube:dragon_rework/dragon
 
@@ -33,7 +32,7 @@ kill @e[tag=dragon_rework.arrowDodge.arrow]
 
 # Handle Death
 # Music
-execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset @s rcube_dragonRework.timer.music
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.timer.music
 execute unless entity @e[tag=dragon_rework.music,type=minecraft:ender_dragon] run stopsound @a record rcube:dragon_rework.phase1
 execute unless entity @e[tag=dragon_rework.music.MAD,type=minecraft:ender_dragon] run stopsound @a record rcube:dragon_rework.phase2
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run tag @a[tag=dragon_rework.player.music] remove dragon_rework.player.music
@@ -44,6 +43,8 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 # Remove left-over entities
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run kill @e[tag=dragon_rework.remove]
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run kill @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre]
+# Crystal Tags
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run tag @e[tag=dragon_rework.crystalInit,type=minecraft:end_crystal] remove dragon_rework.crystalInit
 # Reset Scoreboard
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.dragon.health
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] run scoreboard players reset * rcube_dragonRework.timer.music
@@ -59,13 +60,14 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 execute unless entity @e[tag=dragon_rework.miniboss] run kill @e[tag=dragon_rework.miniboss.minion]
 
 # Miniboss Bossbars
-execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss max run data get entity @s Attributes[3].Base
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss value run data get entity @s Health
 execute if entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible true
 execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible false
 bossbar set rcube:dragon_rework.miniboss players @a
 
 # Tick Miniboss
+execute as @e[tag=dragon_rework.miniboss,tag=!dragon_rework.miniboss.init] at @s run scoreboard players set @s rcube_dragonRework.timer.attacks 900
+execute as @e[tag=dragon_rework.miniboss,tag=!dragon_rework.miniboss.init] run tag @s add dragon_rework.miniboss.init
 execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework/attacks/mad/miniboss/tick
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down

@@ -8,7 +8,7 @@
 # Abilities
 # #####################
 scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/do
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/mad/miniboss/abilities/do
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 
 
@@ -30,7 +30,7 @@ execute if entity @s[nbt={HandItems:[{},{id:"minecraft:totem_of_undying",Count:1
 # ##########################
 
 # Heal
-execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run effect give @s instant_damage 1 9 true
+execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run data merge entity @s {Health:150f}
 
 # Fix totem visual glitch
 execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s weapon.offhand with air

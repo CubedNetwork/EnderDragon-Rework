@@ -5,5 +5,5 @@
 # Ran as: Entity, Player
 
 # Give effect
-execute if entity @e[tag=dragon_rework.miniboss] run effect give @s minecraft:levitation 1 24 true
-execute if entity @e[tag=dragon_rework.minibossMAD] run effect give @s minecraft:levitation 1 39 true
+execute if entity @e[tag=dragon_rework.miniboss,tag=!dragon_rework.minibossMAD] run effect give @a[tag=dragon_rework.miniboss.VICTIM] minecraft:levitation 1 24 true
+execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.minibossMAD] run effect give @a[tag=dragon_rework.miniboss.VICTIM] minecraft:levitation 1 39 true
