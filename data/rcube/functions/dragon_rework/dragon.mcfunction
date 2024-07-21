@@ -5,8 +5,9 @@
 # Ran as: Entity, Ender Dragon (dragonInit = true)
 
 # Timer + Attack handling
-execute if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/do
+execute unless entity @s[tag=dragon_rework.attacks.timer] if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run tag @s add dragon_rework.attacks.timer
+execute if entity @s[tag=dragon_rework.attacks.timer] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/do
 execute unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 400
 execute if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 200
 
