@@ -20,9 +20,6 @@ execute store result score @s rcube_dragonRework.dragon.health run data get enti
 # #####################
 # Timers
 # #####################
-# Start music 10s after player(s) enter end
-execute if entity @e[predicate=rcube:dragon_rework/end_centre] unless entity @s[tag=dragon_rework.music,tag=dragon_rework.music.init] run scoreboard players set .start rcube_dragonRework.timer.music 200
-execute unless score .start rcube_dragonRework.timer.music matches 0 run scoreboard players remove .start rcube_dragonRework.timer.music 1
 # Prepare timers
 execute as @a[tag=dragon_rework.player.music,tag=!dragon_rework.player.music.timerInit] run scoreboard players set @s rcube_dragonRework.timer.music 1
 execute as @a[tag=dragon_rework.player.music,tag=!dragon_rework.player.music.timerInit] run tag @s add dragon_rework.player.music.timerInit
@@ -42,7 +39,7 @@ execute as @a[tag=dragon_rework.player.musicMAD] if entity @s[scores={rcube_drag
 # Play
 # #####################
 # Tag
-execute if score .start rcube_dragonRework.timer.music matches 0 unless entity @s[tag=dragon_rework.music] run tag @s add dragon_rework.music
+execute unless entity @s[tag=dragon_rework.music] run tag @s add dragon_rework.music
 
 # General
 execute if entity @s[tag=dragon_rework.music] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.music] run tag @s add dragon_rework.player.music
