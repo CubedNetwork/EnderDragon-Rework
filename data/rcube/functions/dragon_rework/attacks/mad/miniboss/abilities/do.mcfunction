@@ -20,5 +20,5 @@ execute if entity @s[scores={rcube_dragonRework.phase=2}] in minecraft:the_end a
 
 # Increment + Cap phase
 scoreboard players add @s rcube_dragonRework.phase 1
-execute if entity @s[scores={rcube_dragonRework.phase=4..},tag=!dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.phase 1
-execute if entity @s[scores={rcube_dragonRework.phase=3..},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.phase 1
+execute if entity @s[scores={rcube_dragonRework.phase=3..},tag=!dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.phase 1
+execute if entity @s[scores={rcube_dragonRework.phase=2..},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.phase 1
