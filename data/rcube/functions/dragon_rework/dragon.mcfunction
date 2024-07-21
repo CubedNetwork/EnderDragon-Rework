@@ -90,6 +90,9 @@ execute unless entity @s[tag=dragon_rework.dragon.crystalInit.cage] run tag @s a
 # Respawn + Cage (MAD)
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] as @e[tag=dragon_rework.crystal,tag=!dragon_rework.crystal.near,sort=random,limit=3,type=minecraft:marker] run tag @s add dragon_rework.crystal.respawn
 execute as @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] at @s run summon minecraft:end_crystal ~ ~ ~ {Tags:["dragon_rework.crystalInit"]}
+  # Check again
+  execute if entity @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] as @e[tag=dragon_rework.crystal,type=minecraft:marker] at @s if entity @e[tag=dragon_rework.crystalInit,distance=..2,type=minecraft:end_crystal] run tag @s add dragon_rework.crystal.near
+  execute if entity @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] as @e[tag=dragon_rework.crystal,type=minecraft:marker] at @s unless entity @e[tag=dragon_rework.crystalInit,distance=..2,type=minecraft:end_crystal] run tag @s remove dragon_rework.crystal.near
 execute if entity @e[tag=dragon_rework.crystal.respawn,type=minecraft:marker] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s add dragon_rework.crystal.cage
 
 # Cage
