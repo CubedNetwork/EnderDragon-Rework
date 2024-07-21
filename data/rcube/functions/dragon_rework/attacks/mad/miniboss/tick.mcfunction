@@ -22,6 +22,13 @@ execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run 
 execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run scoreboard players set success.miniboss.bed rcube_dragonRework.store 0
 
 # #####################
+# Void Prevention
+# #####################
+# Teleport miniboss back if in void
+execute store result score yPos.miniboss rcube_dragonRework.store run data get entity @s Pos[1]
+execute if score yPos.miniboss rcube_dragonRework.store matches ..0 run tp @s @e[tag=dragon_rework.monumentMarker,type=minecraft:marker,limit=1]
+
+# #####################
 # Abilities
 # #####################
 scoreboard players remove @s rcube_dragonRework.timer.attacks 1
