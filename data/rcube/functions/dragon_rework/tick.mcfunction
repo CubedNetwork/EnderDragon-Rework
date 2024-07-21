@@ -15,8 +15,10 @@ execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run dat
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
 execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] at @s in minecraft:the_end run function rcube:dragon_rework/dragon
 
-# End Zombies & Miniboss Minions
+# Teleport mobs that spawn in ground up
 execute as @e[tag=dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
+# Prevent dodging arrows into ground
+execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 
 # Arrow Dodging
 # Remove Arrow
