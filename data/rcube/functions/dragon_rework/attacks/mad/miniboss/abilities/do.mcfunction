@@ -9,9 +9,6 @@ execute if entity @s[scores={rcube_dragonRework.phase=1}] at @s run function rcu
 # Fling
 execute if entity @s[scores={rcube_dragonRework.phase=2},tag=!dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=1,gamemode=!spectator] at @s run tag @s add dragon_rework.miniboss.VICTIM
 execute if entity @s[scores={rcube_dragonRework.phase=2},tag=dragon_rework.minibossMAD] in minecraft:the_end as @a[predicate=rcube:dragon_rework/end_centre,sort=nearest,limit=2,gamemode=!spectator] at @s run tag @s add dragon_rework.miniboss.VICTIM
-execute if entity @s[scores={rcube_dragonRework.phase=2}] as @e[tag=dragon_rework.miniboss.VICTIM,tag=!dragon_rework.miniboss.VICTIM_2] run tag @s add dragon_rework.miniboss.VICTIM_1
-execute if entity @s[scores={rcube_dragonRework.phase=2},tag=dragon_rework.minibossMAD] as @e[tag=dragon_rework.miniboss.VICTIM,tag=!dragon_rework.miniboss.VICTIM_1] run tag @s add dragon_rework.miniboss.VICTIM_2
-
 execute if entity @s[scores={rcube_dragonRework.phase=2}] in minecraft:the_end as @a[tag=dragon_rework.miniboss.VICTIM] at @s run function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/do
 
 
