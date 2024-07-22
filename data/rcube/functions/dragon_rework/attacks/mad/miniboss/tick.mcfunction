@@ -32,8 +32,8 @@ execute if score yPos.miniboss rcube_dragonRework.store matches ..0 run tp @s @e
 # Abilities
 # #####################
 scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/mad/miniboss/abilities/do
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/mad/miniboss/abilities/do
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 
 
 
