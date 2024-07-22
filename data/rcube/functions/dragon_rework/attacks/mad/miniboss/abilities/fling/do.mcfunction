@@ -16,5 +16,5 @@ execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.minibossMAD] a
 execute if entity @e[tag=dragon_rework.miniboss,tag=!dragon_rework.minibossMAD] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/blind 3s append
 execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.minibossMAD] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/blind 50t append
 # Remove tag
-execute if entity @e[tag=dragon_rework.miniboss,tag=!dragon_rework.miniboss] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/clear_tag 61t append
-execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.miniboss] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/clear_tag 51t append
+execute if entity @e[tag=dragon_rework.miniboss,tag=!dragon_rework.miniboss] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/clear_tag 4s append
+execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.miniboss] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/clear_tag 4s append
