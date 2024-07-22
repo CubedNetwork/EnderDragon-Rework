@@ -7,7 +7,7 @@
 # Particles in
 execute if entity @e[tag=dragon_rework.miniboss] anchored feet rotated ~ 0 run particle portal ^ ^.75 ^ 0 0.25 0 0.5 2000 force
 # Particles out
-execute at @s anchored feet rotated ~ 0 run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/blind 2s append
+execute at @s anchored feet rotated ~ 0 run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/particle_out 2s append
 
 # Float
 execute if entity @e[tag=dragon_rework.miniboss,tag=!dragon_rework.minibossMAD] at @s run schedule function rcube:dragon_rework/attacks/mad/miniboss/abilities/fling/sch/float 3s append
