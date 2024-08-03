@@ -8,6 +8,9 @@ execute as @e[tag=dragon_rework.arrowDodge] unless entity @s[tag=dragon_rework.s
 execute as @a[tag=!dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
 execute as @e[type=minecraft:arrow,nbt={inGround:false}] run function rcube:dragon_rework/uuid
 
+# Save username length
+execute as @a unless score @s rcube_dragonRework.username.length matches 1.. run say hi
+
 # Register End Crystal locations
 execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] unless entity @e[tag=dragon_rework.dragonInit] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
 execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] unless entity @e[tag=dragon_rework.dragonInit] run tag @s add dragon_rework.crystalInit

@@ -16,6 +16,9 @@ scoreboard objectives add rcube_dragonRework.UUID0 dummy
 scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
+scoreboard objectives add rcube_dragonRework.damage.total dummy
+scoreboard objectives add rcube_dragonRework.damage.max dummy
+scoreboard objectives add rcube_dragonRework.username.length dummy
 
 # Teams
 team add rcube.dragon_rework.color.purple "Purple Glow"
