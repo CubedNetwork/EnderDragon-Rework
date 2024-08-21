@@ -124,8 +124,9 @@ execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless en
 execute if entity @s[tag=dragon_rework.MAD] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
 # Handle invunerable
-execute if entity @e[tag=dragon_rework.miniboss,type=minecraft:marker] run data merge entity @s {Invulnerable:1b}
-execute unless entity @e[tag=dragon_rework.miniboss,type=minecraft:marker] run data merge entity @s {Invulnerable:0b}
+execute if entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:true}
+execute at @s if entity @e[tag=dragon_rework.miniboss] run particle enchanted_hit ~ ~ ~ 3 3 3 1 75 force
+execute unless entity @e[tag=dragon_rework.miniboss] run data merge entity @s {Invulnerable:false}
 
 # Remove beds
 execute store success score success.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
