@@ -18,12 +18,9 @@ scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
 
 # Teams
-team add rcube.dragon_rework.color.purple "Purple Glow"
-team modify rcube.dragon_rework.color.purple color dark_purple
-team add rcube.dragon_rework.color.yellow "Yellow Glow"
-team modify rcube.dragon_rework.color.yellow color yellow
-team add rcube.dragon_rework.color.gray "Light gray Glow"
-team modify rcube.dragon_rework.color.gray color gray
+team add rcube.dragon_rework "[rcube:dragon_rework] Prevent Friendly Fire"
+team modify rcube.dragon_rework friendlyFire false
+team modify rcube.dragon_rework color yellow
 
 # Miniboss Bossbar
 bossbar add rcube:dragon_rework.miniboss {"text":"Warrior of Years Past","bold":false,"italic":false,"underlined":false}
