@@ -4,7 +4,7 @@
 # Called By: rcube:dragon_rework/attacks/mad/rapid_fireball
 # Ran as: Entity, Player (VICTIM)
 
-execute if entity @s[tag=dragon_rework.MAD] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:0b,ExplosionPower:2,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball.2"]}
+execute if entity @s[tag=dragon_rework.MAD] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:2,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball.2"]}
 
 # Data
 execute as @e[tag=dragon_rework.fireball.2,type=minecraft:fireball] run data modify entity @s power set from entity @s Pos
