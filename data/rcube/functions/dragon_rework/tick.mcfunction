@@ -24,21 +24,25 @@ execute as @e[tag=dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp
 # Prevent dodging arrows into ground
 execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.floor.spawn] at @s unless block ~ ~ ~ air run tp ~ ~1 ~
 
-# Arrow Dodging
+# Arrow Management
+# Tag management entities
+execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage] run tag @s add dragon_rework.arrowManage
+execute as @e[tag=dragon_rework.arrowImmune,tag=!dragon_rework.arrowManage] run tag @s add dragon_rework.arrowManage
 # Store arrow UUID
-execute as @e[tag=dragon_rework.arrowDodge] if score .arrow rcube_dragonRework.UUID0 = @s rcube_dragonRework.UUID0 if score .arrow rcube_dragonRework.UUID1 = @s rcube_dragonRework.UUID1 if score .arrow rcube_dragonRework.UUID2 = @s rcube_dragonRework.UUID2 if score .arrow rcube_dragonRework.UUID3 = @s rcube_dragonRework.UUID3 run tag @s add dragon_rework.arrowDodge.ownArrow
+execute as @e[tag=dragon_rework.arrowManage] if score .arrow rcube_dragonRework.UUID0 = @s rcube_dragonRework.UUID0 if score .arrow rcube_dragonRework.UUID1 = @s rcube_dragonRework.UUID1 if score .arrow rcube_dragonRework.UUID2 = @s rcube_dragonRework.UUID2 if score .arrow rcube_dragonRework.UUID3 = @s rcube_dragonRework.UUID3 run tag @s add dragon_rework.arrowManage.ownArrow
+# Store arrow location if arrow dodge
+execute as @e[tag=dragon_rework.arrowManage,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}] at @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}] run summon marker ~ ~ ~ {Tags:["dragon_rework.arrowDodge.arrow"]}
 # Remove Arrow
-execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowDodge.ownArrow] at @s if entity @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}] at @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}] run summon marker ~ ~ ~ {Tags:["dragon_rework.arrowDodge.arrow"]}
-execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowDodge.ownArrow] at @s run kill @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}]
-execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowDodge.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
+execute as @e[tag=dragon_rework.arrowManage,tag=!dragon_rework.arrowManage.ownArrow] at @s run kill @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}]
 # Randomise Direction
+execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
 execute if predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 1
 execute unless predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 0
-execute if score RNG.arrow rcube_dragonRework.store matches 0 as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowDodge.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run tp ^3 ^ ^-3
-execute if score RNG.arrow rcube_dragonRework.store matches 1 as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowDodge.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run tp ^-3 ^ ^3
+execute if score RNG.arrow rcube_dragonRework.store matches 0 as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run tp ^3 ^ ^-3
+execute if score RNG.arrow rcube_dragonRework.store matches 1 as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run tp ^-3 ^ ^3
 # Cleanup
 kill @e[tag=dragon_rework.arrowDodge.arrow,type=minecraft:marker]
-execute as @e[tag=dragon_rework.arrowDodge,tag=dragon_rework.arrowDodge.ownArrow] unless score .arrow rcube_dragonRework.UUID0 = @s rcube_dragonRework.UUID0 unless score .arrow rcube_dragonRework.UUID1 = @s rcube_dragonRework.UUID1 unless score .arrow rcube_dragonRework.UUID2 = @s rcube_dragonRework.UUID2 unless score .arrow rcube_dragonRework.UUID3 = @s rcube_dragonRework.UUID3 run tag @s remove dragon_rework.arrowDodge.ownArrow
+execute as @e[tag=dragon_rework.arrowDodge,tag=dragon_rework.arrowManage.ownArrow] unless score .arrow rcube_dragonRework.UUID0 = @s rcube_dragonRework.UUID0 unless score .arrow rcube_dragonRework.UUID1 = @s rcube_dragonRework.UUID1 unless score .arrow rcube_dragonRework.UUID2 = @s rcube_dragonRework.UUID2 unless score .arrow rcube_dragonRework.UUID3 = @s rcube_dragonRework.UUID3 run tag @s remove dragon_rework.arrowManage.ownArrow
 
 # Handle Death
 # Music
