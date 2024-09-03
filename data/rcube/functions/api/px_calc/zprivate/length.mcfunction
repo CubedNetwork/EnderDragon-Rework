@@ -108,7 +108,7 @@ execute if data storage rcube:api/px_calc private{temp:{chop:"}"}} run scoreboar
 execute if data storage rcube:api/px_calc private{temp:{chop:"~"}} run scoreboard players set #px.temp rcubeAPI_pxCalc 7
 
 # Add to output
-scoreboard players operation $out.px rcubeAPI_pxCalc += #px.temp rcubeAPI_pxCalc
+scoreboard players operation $px rcubeAPI_pxCalc += #px.temp rcubeAPI_pxCalc
 
 # Subtract from needed runs
 scoreboard players remove $loop rcubeAPI_pxCalc 1

@@ -3,7 +3,7 @@
 
 # Clear stale data
 data remove storage rcube:api/px_calc private.temp
-scoreboard players reset $out.px rcubeAPI_pxCalc
+scoreboard players reset $px rcubeAPI_pxCalc
 scoreboard players reset #px.temp rcubeAPI_pxCalc
 scoreboard players reset $loop rcubeAPI_pxCalc
 
@@ -12,7 +12,7 @@ data modify storage rcube:api/px_calc private.temp set from storage rcube:api/px
 data remove storage rcube:api/px_calc in
 
 # Store character count
-execute store result score $char_count rcubeAPI_pxCalc store result score $loop rcubeAPI_pxCalc run data get storage rcube:api/px_calc private.temp.string
+execute store result score $char_count rcubeAPI_pxCalc store result score $loop rcubeAPI_pxCalc run data get storage rcube:api/px_calc private.temp.str
 
 # Get pixel length
 data modify storage rcube:api/px_calc private.temp.chop1 set from storage rcube:api/px_calc private.temp.str
