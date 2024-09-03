@@ -41,7 +41,7 @@ scoreboard players operation @a rcube_dragonRework.death.damage.rank = @a rcubeA
 tellraw @a[tag=dragon_rework.player.participated] ""
 tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"-----------------------------------------------------","strikethrough":true,"color":"green"}]
 tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c","bold": true},{"text":"ENDER DRAGON DOWN!","color":"gold","bold":true}]
-tellraw @a[tag=dragon_rework.player.participated] ""
+execute if entity @a[scores={rcube_dragonRework.death.damage.rank=-2147483648..2147483647}] run tellraw @a[tag=dragon_rework.player.participated] ""
 
 # Final blow message
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run scoreboard players reset * rcube_dragonRework.death.temp
@@ -133,6 +133,9 @@ execute unless data storage rcube:dragon_rework {previously_defeated:true} run d
 
 # Revoke trigger advancement
 advancement revoke @a[advancements={rcube:dragon_rework/kill_dragon=true}] only rcube:dragon_rework/kill_dragon
+
+# Set death message sent to true
+data modify storage rcube:dragon_rework death_message_done set value true
 
 # Remove tags
 tag @a[tag=dragon_rework.player.participated] remove dragon_rework.player.participated
