@@ -3,8 +3,11 @@
 #
 # Called By: #minecraft:load
 
-# Loaded Message
-tellraw @a {"text":"Dragon Rework","color":"dark_purple"}
+# Prefix
+data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " >","color": "gray"}'}]
+
+# Load Message
+tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true}," Reloaded."]
 
 # Data
 scoreboard objectives add rcube_dragonRework.timer.attacks dummy
@@ -16,6 +19,24 @@ scoreboard objectives add rcube_dragonRework.UUID0 dummy
 scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
+scoreboard objectives add rcube_dragonRework.death dummy
+scoreboard objectives add rcube_dragonRework.death.damage.total dummy
+scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
+scoreboard objectives add rcube_dragonRework.death.temp dummy
+scoreboard objectives add rcube_dragonRework.deps dummy
+scoreboard objectives add rcube_dragonRework.damage.total dummy
+scoreboard objectives add rcube_dragonRework.damage.max dummy
+scoreboard objectives add rcube_dragonRework.username.length dummy
+
+# Pixel Data
+# " dealt the final blow."
+scoreboard players set #num.102 rcube_dragonRework.store 102
+# " -  - "
+scoreboard players set #num.24 rcube_dragonRework.store 24
+# "1st Damager", bold
+scoreboard players set #num.73 rcube_dragonRework.store 73
+# "2nd Damager" / "3rd Damager", bold
+scoreboard players set #num.75 rcube_dragonRework.store 75
 
 # Teams
 team add rcube.dragon_rework.color.purple "Purple Glow"

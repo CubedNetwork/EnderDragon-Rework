@@ -1,5 +1,6 @@
 {
     "values": [
+        "rcube:api/load",
         "rcube:dragon_rework/load"
     ]
 }

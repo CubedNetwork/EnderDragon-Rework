@@ -1,22 +1,27 @@
 {
-    "criteria": {
-      "killed_dragon": {
-        "trigger": "minecraft:player_killed_entity",
-        "conditions": {
-          "entity": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "type": "minecraft:ender_dragon"
-              }
+  "criteria": {
+    "killed_dragon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ender_dragon"
             }
-          ]
-        }
+          }
+        ]
       }
-    },
-    "rewards": {
-        "function": "rcube:dragon_rework/kill_dragon"
     }
-  }
-  
+  },
+  "requirements": [
+    [
+      "killed_dragon"
+    ]
+  ],
+  "rewards": {
+    "function": "rcube:dragon_rework/death"
+  },
+  "sends_telemetry_event": false
+}
