@@ -53,7 +53,7 @@ execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run sc
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run data modify storage rcube:api/centre_string in.manual set value true
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:api/centre_string/run
-execute as @a[advancements={rcube:dragon_rework/kill_dragon=true},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"output[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"nbt":"output.username","storage":"rcube:api/player_name","color":"dark_gray"},{"text":" dealt the final blow.","color":"gray"}]
+execute as @a[advancements={rcube:dragon_rework/kill_dragon=true},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"nbt":"out.username","storage":"rcube:api/player_name","color":"dark_gray"},{"text":" dealt the final blow.","color":"gray"}]
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run tellraw @a[tag=dragon_rework.player.participated] ""
 
 # 1st damager
@@ -72,7 +72,7 @@ scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
-execute as @a[scores={rcube_dragonRework.death.damage.rank=1},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"output[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "1st Damager","color": "yellow","bold": true},{"text": " - ","color": "gray"},{"nbt":"output.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
+execute as @a[scores={rcube_dragonRework.death.damage.rank=1},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "1st Damager","color": "yellow","bold": true},{"text": " - ","color": "gray"},{"nbt":"out.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
 
 # 2nd damager
 scoreboard players reset * rcube_dragonRework.death.temp
@@ -90,7 +90,7 @@ scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
-execute as @a[scores={rcube_dragonRework.death.damage.rank=2},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"output[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "2nd Damager","color": "gold","bold": true},{"text": " - ","color": "gray"},{"nbt":"output.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
+execute as @a[scores={rcube_dragonRework.death.damage.rank=2},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "2nd Damager","color": "gold","bold": true},{"text": " - ","color": "gray"},{"nbt":"out.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
 
 # 3rd damager
 scoreboard players reset * rcube_dragonRework.death.temp
@@ -108,7 +108,7 @@ scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
-execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"output[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "3rd Damager","color": "red","bold": true},{"text": " - ","color": "gray"},{"nbt":"output.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
+execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "3rd Damager","color": "red","bold": true},{"text": " - ","color": "gray"},{"nbt":"out.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
 
 tellraw @a ""
 
