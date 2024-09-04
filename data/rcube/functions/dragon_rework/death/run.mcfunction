@@ -25,11 +25,12 @@ execute as @a[scores={rcubeAPI_damageDealt.damage.total=-2147483648..2147483647}
 
 # Store damage totals
 execute as @a[tag=dragon_rework.player.damaged_dragon] run scoreboard players operation @s rcube_dragonRework.death.damage.total = @s rcubeAPI_damageDealt.damage.total
+execute as @a[tag=dragon_rework.player.participated] unless score @s rcube_dragonRework.death.damage.total matches -2147483648..2147483647 run scoreboard players set @s rcube_dragonRework.death.damage.total 0
 
 # Rank players (Utilises module 'scoreboard_rank')
 execute as @a[tag=dragon_rework.player.damaged_dragon] run scoreboard players operation @s rcubeAPI_scoreboardRank.in = @s rcube_dragonRework.death.damage.total
 function rcube:api/scoreboard_rank/run
-scoreboard players operation @a rcube_dragonRework.death.damage.rank = @a rcubeAPI_scoreboardRank.out
+execute as @a[tag=dragon_rework.player.participated] run scoreboard players operation @s rcube_dragonRework.death.damage.rank = @s rcubeAPI_scoreboardRank.out
 
 # #####################
 # Text
@@ -142,4 +143,3 @@ data modify storage rcube:dragon_rework death_message_done set value true
 
 # Remove tags
 tag @a[tag=dragon_rework.player.participated] remove dragon_rework.player.participated
-tag @a[tag=dragon_rework.player.damaged_dragon] remove dragon_rework.player.damaged_dragon
