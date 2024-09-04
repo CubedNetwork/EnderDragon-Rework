@@ -5,6 +5,7 @@
 
 # Choose player
 execute as @a[scores={rcube_dragonRework.death.players_do=1},limit=1] run tag @s add dragon_rework.player.your_dmg.temp
+scoreboard players reset @a[tag=dragon_rework.player.your_dmg.temp] rcube_dragonRework.death.players_do
 
 # #####################
 # Text
@@ -32,8 +33,7 @@ data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
 
 # Output text
-tellraw @a[tag=dragon_rework.player.your_dmg.temp] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
-tellraw @a[tag=dragon_rework.player.your_dmg.temp] ""
+tellraw @a[tag=dragon_rework.player.your_dmg.temp] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.rank","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
 
 # #####################
 # Other
@@ -42,6 +42,5 @@ tellraw @a[tag=dragon_rework.player.your_dmg.temp] ""
 # Remove tag
 tag @a[tag=dragon_rework.player.your_dmg.temp] remove dragon_rework.player.your_dmg.temp
 
-# Run as next player
-execute as @a[tag=dragon_rework.player.your_dmg.temp] run scoreboard players reset @s rcube_dragonRework.death.players_do
+# Run if another player
 execute if entity @a[scores={rcube_dragonRework.death.players_do=1}] run function rcube:dragon_rework/death/your_dmg
