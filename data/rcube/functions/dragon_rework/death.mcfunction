@@ -12,9 +12,6 @@
 # Called By: rcube:dragon_rework/kill_dragon (ADVANCEMENT)
 # Ran as: Entity, Player
 
-## REQUIRES CHECK FOR IF RCUBE API REQUIRED MODULES ADDED
-
-
 # Remove stale data
 scoreboard players reset * rcube_dragonRework.death
 scoreboard players reset * rcube_dragonRework.death.damage.total
@@ -30,7 +27,7 @@ execute as @a[scores={rcubeAPI_damageDealt.damage.total=-2147483648..2147483647}
 execute as @a[tag=dragon_rework.player.damaged_dragon] run scoreboard players operation @s rcube_dragonRework.death.damage.total = @s rcubeAPI_damageDealt.damage.total
 
 # Rank players (Utilises module 'scoreboard_rank')
-execute as @a[tag=dragon_rework.player.damaged_dragon] run scoreboard players operation @s rcubeAPI_scoreboardRank.in = @s rcube_dragonRework.death.damage.rank
+execute as @a[tag=dragon_rework.player.damaged_dragon] run scoreboard players operation @s rcubeAPI_scoreboardRank.in = @s rcube_dragonRework.death.damage.total
 function rcube:api/scoreboard_rank/run
 scoreboard players operation @a rcube_dragonRework.death.damage.rank = @a rcubeAPI_scoreboardRank.out
 
