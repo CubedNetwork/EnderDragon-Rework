@@ -19,14 +19,10 @@ scoreboard objectives add rcube_dragonRework.UUID0 dummy
 scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
-scoreboard objectives add rcube_dragonRework.death dummy
 scoreboard objectives add rcube_dragonRework.death.damage.total dummy
 scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
 scoreboard objectives add rcube_dragonRework.death.temp dummy
 scoreboard objectives add rcube_dragonRework.deps dummy
-scoreboard objectives add rcube_dragonRework.damage.total dummy
-scoreboard objectives add rcube_dragonRework.damage.max dummy
-scoreboard objectives add rcube_dragonRework.username.length dummy
 
 # Pixel Data
 # " dealt the final blow."

@@ -13,7 +13,6 @@
 # Ran as: Entity, Player
 
 # Remove stale data
-scoreboard players reset * rcube_dragonRework.death
 scoreboard players reset * rcube_dragonRework.death.damage.total
 scoreboard players reset * rcube_dragonRework.death.damage.rank
 
@@ -109,7 +108,7 @@ execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellr
 
 tellraw @a[tag=dragon_rework.player.participated] ""
 
-## CHECK
+
 # First time defeated
 execute unless data storage rcube:dragon_rework {previously_defeated:true} run tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c","bold":true},{"text":"This boss hasn't been killed before, you are","color":"yellow"}]
 execute unless data storage rcube:dragon_rework {previously_defeated:true} run tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c","bold":true},{"text":"eligible for the ","color":"yellow"},{"text":"[","color":"dark_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:dragon_egg","count":1}}},{"text":"Dragon Egg","color":"light_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:dragon_egg","count":1}}},{"text":"]","color":"dark_purple","color":"dark_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:dragon_egg","count":1}}}]
