@@ -1,5 +1,5 @@
 # Made by: @rcube.
-# Give everyone at end centre advancement
+# Give participants advancement
 # Send dragon down message
 # Utilises RCube-API:
 #   - 'core'
@@ -15,6 +15,7 @@
 # Remove stale data
 scoreboard players reset * rcube_dragonRework.death.damage.total
 scoreboard players reset * rcube_dragonRework.death.damage.rank
+scoreboard players reset * rcube_dragonRework.death.players_do
 
 # Tag persistent marker
 tag @e[tag=dragon_rework.monumentMarker] add dragon_rework.defeated
@@ -105,9 +106,11 @@ execute store result storage rcube:api/centre_string in.px int 1 run scoreboard 
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
 execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "3rd Damager","color": "red","bold": true},{"text": " - ","color": "gray"},{"nbt":"out.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
+execute if entity @a[scores={rcube_dragonRework.death.damage.rank=-2147483648..2147483647}] run tellraw @a[tag=dragon_rework.player.participated] ""
 
-tellraw @a[tag=dragon_rework.player.participated] ""
-
+# Your Damage
+execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] as @a[tag=dragon_rework.player.participated] run scoreboard players set @s rcube_dragonRework.death.players_do 1
+execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:dragon_rework/death/your_dmg
 
 # First time defeated
 execute unless data storage rcube:dragon_rework {previously_defeated:true} run tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c","bold":true},{"text":"This boss hasn't been killed before, you are","color":"yellow"}]
@@ -120,6 +123,10 @@ execute if data storage rcube:dragon_rework {previously_defeated:true} run tellr
 execute run tellraw @a[tag=dragon_rework.player.participated] ""
 execute run tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"-----------------------------------------------------","strikethrough":true,"color":"green"}]
 execute run tellraw @a[tag=dragon_rework.player.participated] ""
+
+# #####################
+# Other
+# #####################
 
 # Grant "Free the End" advancement
 execute as @a[tag=dragon_rework.player.participated,advancements={minecraft:end/kill_dragon=false}] run advancement grant @s[gamemode=!spectator] only minecraft:end/kill_dragon

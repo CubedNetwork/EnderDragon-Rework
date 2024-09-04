@@ -21,7 +21,7 @@
     ]
   ],
   "rewards": {
-    "function": "rcube:dragon_rework/death"
+    "function": "rcube:dragon_rework/death/run"
   },
   "sends_telemetry_event": false
 }

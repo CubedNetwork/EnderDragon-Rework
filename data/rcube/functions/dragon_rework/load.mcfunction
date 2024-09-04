@@ -21,18 +21,21 @@ scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
 scoreboard objectives add rcube_dragonRework.death.damage.total dummy
 scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
+scoreboard objectives add rcube_dragonRework.death.players_do dummy
 scoreboard objectives add rcube_dragonRework.death.temp dummy
 scoreboard objectives add rcube_dragonRework.deps dummy
 
 # Pixel Data
-# " dealt the final blow."
+# "PLAYER dealt the final blow."
 scoreboard players set #num.102 rcube_dragonRework.store 102
-# " -  - "
+# " - PLAYER - DMG"
 scoreboard players set #num.24 rcube_dragonRework.store 24
 # "1st Damager", bold
 scoreboard players set #num.73 rcube_dragonRework.store 73
 # "2nd Damager" / "3rd Damager", bold
 scoreboard players set #num.75 rcube_dragonRework.store 75
+# "Your Damage: DMG (Position #x)"
+scoreboard players set #num.132 rcube_dragonRework.store 132
 
 # Teams
 team add rcube.dragon_rework.color.purple "Purple Glow"
