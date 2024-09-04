@@ -107,7 +107,7 @@ data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
 execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellraw @a[tag=dragon_rework.player.participated] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text": "3rd Damager","color": "red","bold": true},{"text": " - ","color": "gray"},{"nbt":"out.username","storage":"rcube:api/player_name","color":"gray"},{"text": " - ","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.total","name": "@s"},"color": "yellow"}]
 
-tellraw @a ""
+tellraw @a[tag=dragon_rework.player.participated] ""
 
 ## CHECK
 # First time defeated
