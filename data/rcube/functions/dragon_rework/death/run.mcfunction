@@ -109,8 +109,8 @@ execute as @a[scores={rcube_dragonRework.death.damage.rank=3},limit=1] run tellr
 execute if entity @a[scores={rcube_dragonRework.death.damage.rank=-2147483648..2147483647}] run tellraw @a[tag=dragon_rework.player.participated] ""
 
 # Your Damage
-execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] as @a[tag=dragon_rework.player.participated] run scoreboard players set @s rcube_dragonRework.death.players_do 1
-execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:dragon_rework/death/your_dmg
+execute as @a[tag=dragon_rework.player.participated] run scoreboard players set @s rcube_dragonRework.death.players_do 1
+function rcube:dragon_rework/death/your_dmg
 
 # First time defeated
 execute unless data storage rcube:dragon_rework {previously_defeated:true} run tellraw @a[tag=dragon_rework.player.participated] ["",{"text":"\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c\u200c","bold":true},{"text":"This boss hasn't been killed before, you are","color":"yellow"}]
