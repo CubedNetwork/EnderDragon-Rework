@@ -4,6 +4,9 @@
 # Called By: rcube:dragon_rework/tick
 # Ran as: Entity, Ender Dragon (dragonInit = true)
 
+# Tag player
+tag @a[predicate=rcube:dragon_rework/end_centre] add dragon_rework.player.participated
+
 # Timer + Attack handling
 execute unless entity @s[tag=dragon_rework.attacks.timer] if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run tag @s add dragon_rework.attacks.timer
 execute if entity @s[tag=dragon_rework.attacks.timer] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
