@@ -27,7 +27,7 @@ execute store result score $rank rcube_dragonRework.death.temp run data get stor
 
 # Do math to centre text
 scoreboard players operation $px rcube_dragonRework.death.temp += $rank rcube_dragonRework.death.temp
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.132 rcube_dragonRework.store
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.132 rcube_dragonRework.const
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run

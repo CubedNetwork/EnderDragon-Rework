@@ -47,7 +47,7 @@ execute as @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function 
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run data modify storage rcube:api/px_calc in.str set from storage rcube:api/player_name out.username
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:api/px_calc/run
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] store result score $px rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
-execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run scoreboard players operation $px rcube_dragonRework.death.temp += #num.102 rcube_dragonRework.store
+execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run scoreboard players operation $px rcube_dragonRework.death.temp += #num.102 rcube_dragonRework.const
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run data modify storage rcube:api/centre_string in.manual set value true
 execute if entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:api/centre_string/run
@@ -65,8 +65,8 @@ data modify storage rcube:api/px_calc in.str set string storage rcube:api/px_cal
 function rcube:api/px_calc/run
 execute store result score $dmg rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
 scoreboard players operation $px rcube_dragonRework.death.temp += $dmg rcube_dragonRework.death.temp
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.73 rcube_dragonRework.store
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.store
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.73 rcube_dragonRework.const
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.const
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
@@ -83,8 +83,8 @@ data modify storage rcube:api/px_calc in.str set string storage rcube:api/px_cal
 function rcube:api/px_calc/run
 execute store result score $dmg rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
 scoreboard players operation $px rcube_dragonRework.death.temp += $dmg rcube_dragonRework.death.temp
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.75 rcube_dragonRework.store
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.store
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.75 rcube_dragonRework.const
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.const
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
@@ -101,8 +101,8 @@ data modify storage rcube:api/px_calc in.str set string storage rcube:api/px_cal
 function rcube:api/px_calc/run
 execute store result score $dmg rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
 scoreboard players operation $px rcube_dragonRework.death.temp += $dmg rcube_dragonRework.death.temp
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.75 rcube_dragonRework.store
-scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.store
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.75 rcube_dragonRework.const
+scoreboard players operation $px rcube_dragonRework.death.temp += #num.24 rcube_dragonRework.const
 execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
 data modify storage rcube:api/centre_string in.manual set value true
 function rcube:api/centre_string/run
