@@ -5,8 +5,8 @@
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=3})
 
 # Check if mad -> which fireball to summon
-execute unless entity @s[tag=dragon_rework.MAD,type=minecraft:ender_dragon] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:5b,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball"],Item:{id:"minecraft:dragon_egg",Count:true}}
-execute if entity @s[tag=dragon_rework.MAD,type=minecraft:ender_dragon] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:5b,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball"],Item:{id:"minecraft:dragon_egg",Count:true}}
+execute unless entity @s[tag=dragon_rework.MAD,type=minecraft:ender_dragon] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:5b,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball"],Item:{id:"minecraft:dragon_egg",Count:1b}}
+execute if entity @s[tag=dragon_rework.MAD,type=minecraft:ender_dragon] run execute positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:5b,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball"],Item:{id:"minecraft:dragon_egg",Count:1b}}
 
 # Data
 execute as @e[tag=dragon_rework.fireball,type=minecraft:fireball] run data modify entity @s power set from entity @s Pos
