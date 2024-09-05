@@ -15,9 +15,9 @@ execute at @s run tag @r[tag=dragon_rework.enderman.VICTIM,tag=!dragon_rework.en
 execute at @s run tag @r[tag=dragon_rework.enderman.VICTIM,tag=!dragon_rework.enderman.VICTIM_1,tag=!dragon_rework.enderman.VICTIM_2,predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] add dragon_rework.enderman.VICTIM_3
 
 # choose 10 endermen per player
-execute at @r[tag=dragon_rework.enderman.VICTIM_1] run tag @e[type=minecraft:enderman,sort=nearest,limit=5,tag=!dragon_rework.enderman.ANGRY_2,tag=!dragon_rework.enderman.ANGRY_3] add dragon_rework.enderman.ANGRY_1
-execute at @r[tag=dragon_rework.enderman.VICTIM_2] run tag @e[type=minecraft:enderman,sort=nearest,limit=5,tag=!dragon_rework.enderman.ANGRY_1,tag=!dragon_rework.enderman.ANGRY_3] add dragon_rework.enderman.ANGRY_2
-execute at @r[tag=dragon_rework.enderman.VICTIM_3] run tag @e[type=minecraft:enderman,sort=nearest,limit=5,tag=!dragon_rework.enderman.ANGRY_1,tag=!dragon_rework.enderman.ANGRY_2] add dragon_rework.enderman.ANGRY_3
+execute at @r[tag=dragon_rework.enderman.VICTIM_1] run tag @e[type=minecraft:enderman,sort=nearest,limit=10,tag=!dragon_rework.enderman.ANGRY_2,tag=!dragon_rework.enderman.ANGRY_3] add dragon_rework.enderman.ANGRY_1
+execute at @r[tag=dragon_rework.enderman.VICTIM_2] run tag @e[type=minecraft:enderman,sort=nearest,limit=10,tag=!dragon_rework.enderman.ANGRY_1,tag=!dragon_rework.enderman.ANGRY_3] add dragon_rework.enderman.ANGRY_2
+execute at @r[tag=dragon_rework.enderman.VICTIM_3] run tag @e[type=minecraft:enderman,sort=nearest,limit=10,tag=!dragon_rework.enderman.ANGRY_1,tag=!dragon_rework.enderman.ANGRY_2] add dragon_rework.enderman.ANGRY_3
 tag @e[tag=dragon_rework.enderman.ANGRY_1,type=minecraft:enderman] add dragon_rework.enderman.ANGRY
 tag @e[tag=dragon_rework.enderman.ANGRY_2,type=minecraft:enderman] add dragon_rework.enderman.ANGRY
 tag @e[tag=dragon_rework.enderman.ANGRY_3,type=minecraft:enderman] add dragon_rework.enderman.ANGRY
