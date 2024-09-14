@@ -12,6 +12,11 @@
 # Called By: rcube:dragon_rework/kill_dragon (ADVANCEMENT)
 # Ran as: Entity, Player
 
+# Update damage dealt
+# (dragon most of the time would not fully dead yet, not all damage has been totaled)
+#    - This is due to this function often being run by advancement trigger
+execute as @e[tag=dragon_rework.dragonInit] run function rcube:api/damage_dealt/check
+
 # Remove stale data
 scoreboard players reset * rcube_dragonRework.death.damage.total
 scoreboard players reset * rcube_dragonRework.death.damage.rank
