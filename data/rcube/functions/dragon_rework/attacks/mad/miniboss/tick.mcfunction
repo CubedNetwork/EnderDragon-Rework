@@ -29,13 +29,20 @@ execute store result score yPos.miniboss rcube_dragonRework.store run data get e
 execute if score yPos.miniboss rcube_dragonRework.store matches ..0 run tp @s @e[tag=dragon_rework.monumentMarker,type=minecraft:marker,limit=1]
 
 # #####################
+# Regen
+# #####################
+execute unless entity @s[tag=dragon_rework.miniboss.init] run function rcube:dragon_rework/attacks/mad/miniboss/regen
+
+# #####################
 # Abilities
 # #####################
-scoreboard players remove @s rcube_dragonRework.timer.attacks 1
+execute unless entity @s[tag=dragon_rework.miniboss.init] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
+scoreboard players remove @s[tag=dragon_rework.miniboss.init] rcube_dragonRework.timer.attacks 1
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/mad/miniboss/abilities/do
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0},tag=!dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 450
-
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=451..},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 450
+tag @s add dragon_rework.miniboss.init
 
 
 # ##########################
@@ -54,8 +61,8 @@ execute if entity @s[nbt={HandItems:[{},{id:"minecraft:totem_of_undying",Count:1
 # Handle MAD
 # ##########################
 
-# Heal
-execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run data merge entity @s {Health:150f}
+# Heal + Absorbtion
+execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run data merge entity @s {Health:150f,AbsorptionAmount:100f}
 
 # Fix totem visual glitch
 execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",Count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s weapon.offhand with air
