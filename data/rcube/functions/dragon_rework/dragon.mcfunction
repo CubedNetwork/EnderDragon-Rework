@@ -121,6 +121,15 @@ execute as @e[tag=dragon_rework.crystal.near,type=minecraft:marker] run tag @s r
 execute store result score Entity.EndZombie rcube_dragonRework.store if entity @e[tag=dragon_rework.endZombie,type=minecraft:zombie]
 execute store result score Entity.CustomPhantom rcube_dragonRework.store if entity @e[tag=dragon_rework.phantom,type=minecraft:phantom]
 
+# Handle End Zombie HP increase
+execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] as @e[tag=dragon_rework.endZombie,tag=!dragon_rework.endZombie.healthDone] run tag @s add dragon_rework.endZombie.temp
+execute as @a[tag=dragon_rework.endZombie.temp] store result score @s rcube_dragonRework.temp run data get entity @s Health 10000
+execute as @e[tag=dragon_rework.endZombie.temp] unless score @s rcube_dragonRework.temp matches 19750.. run data merge entity @s {Attributes:[{Name:"generic.max_health",Base:25}]}
+execute as @e[tag=dragon_rework.endZombie.temp] if score @s rcube_dragonRework.temp matches 19750.. run data merge entity @s {Health:25f,Attributes:[{Name:"generic.max_health",Base:25}]}
+execute as @a[tag=dragon_rework.endZombie.temp] run scoreboard players reset @s rcube_dragonRework.temp
+execute as @e[tag=dragon_rework.endZombie.temp] run tag @s add dragon_rework.endZombie.healthDone
+execute as @e[tag=dragon_rework.endZombie.temp] run tag @s remove dragon_rework.endZombie.temp
+
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/attacks/mad/miniboss/summon
 execute if entity @s[scores={rcube_dragonRework.dragon.health=0..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD

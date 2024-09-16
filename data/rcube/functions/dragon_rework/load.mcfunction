@@ -20,6 +20,7 @@ scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
 scoreboard objectives add rcube_dragonRework.const dummy
+scoreboard objectives add rcube_dragonRework.temp dummy "[rcube:dragon_rework] Temp (clear before + after use)"
 scoreboard objectives add rcube_dragonRework.death.damage.total dummy
 scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
 scoreboard objectives add rcube_dragonRework.death.players_do dummy
