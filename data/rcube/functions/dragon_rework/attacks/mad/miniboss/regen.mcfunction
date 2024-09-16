@@ -4,9 +4,10 @@
 #
 # Called By: rcube:dragon_rework/attacks/mad/miniboss/regen (If miniboss exists)
 
-# Heal by 1 hp
+# Heal by 1 hp (1.5 if mad)
 execute store result score $miniboss.regen rcube_dragonRework.store run data get entity @e[tag=dragon_rework.miniboss,limit=1] Health 10000
-scoreboard players add $miniboss.regen rcube_dragonRework.store 10000
+execute if entity @e[tag=dragon_rework.miniboss] unless entity @e[tag=dragon_rework.minibossMAD] run scoreboard players add $miniboss.regen rcube_dragonRework.store 10000
+execute if entity @e[tag=dragon_rework.minibossMAD] run scoreboard players add $miniboss.regen rcube_dragonRework.store 15000
 execute store result storage rcube:dragon_rework root.health.miniboss float 0.0001 run scoreboard players get $miniboss.regen rcube_dragonRework.store
 execute as @e[tag=dragon_rework.miniboss] run data modify entity @s Health set from storage rcube:dragon_rework root.health.miniboss
 
