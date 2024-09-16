@@ -10,7 +10,7 @@ tag @a[predicate=rcube:dragon_rework/end_centre] add dragon_rework.player.partic
 # Timer + Attack handling
 execute unless entity @s[tag=dragon_rework.attacks.timer] if entity @s[scores={rcube_dragonRework.dragon.health=..499}] run tag @s add dragon_rework.attacks.timer
 execute if entity @s[tag=dragon_rework.attacks.timer] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/do
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/run
 execute unless entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 400
 execute if entity @s[tag=dragon_rework.MAD] if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 200
 

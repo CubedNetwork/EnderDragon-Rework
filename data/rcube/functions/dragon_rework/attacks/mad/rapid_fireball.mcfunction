@@ -1,7 +1,7 @@
 # Made by: @rcube.
 # Rapid-fire fireball
 #
-# Called By: rcube:dragon_rework/attacks/do_mad
+# Called By: rcube:dragon_rework/attacks/do
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=8})
 
 # choose 3 players
