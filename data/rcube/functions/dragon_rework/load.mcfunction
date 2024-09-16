@@ -3,11 +3,11 @@
 #
 # Called By: #minecraft:load
 
-# Prefix
-data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " >","color": "gray"}'}]
+# Check dependencies
+function rcube:dragon_rework/deps
 
-# Load Message
-tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true}," Reloaded."]
+# Setup prefix
+data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
 
 # Data
 scoreboard objectives add rcube_dragonRework.timer.attacks dummy
@@ -51,3 +51,8 @@ bossbar set rcube:dragon_rework.miniboss max 150
 
 # Monument Marker
 execute in minecraft:the_end unless entity @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] run summon marker 0 200 0 {Tags:["dragon_rework.monumentMarker"]}
+
+# Load Message
+execute unless data storage rcube:dragon_rework root.load_message run data modify storage rcube:dragon_rework root.load_message set value true
+execute if data storage rcube:dragon_rework root{load_message:true,installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true},"Reloaded."]
+execute if data storage rcube:dragon_rework root{load_message:true} unless data storage rcube:dragon_rework root{installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true},"is missing dependencies.\n",{"text": "   Missing Dependencies:\n"},{"nbt":"dependencies[].missing[]","storage":"rcube:dragon_rework","interpret":true,"separator":"\n\n"}]
