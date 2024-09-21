@@ -1,7 +1,7 @@
 # Made by: @rcube.
 # Zeus strikes back.
 #
-# Called By: rcube:dragon_rework/attacks/mad/lightning_start
+# Called By: rcube:dragon_rework/attacks/lightning
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=6})
 
 # Summon lightning

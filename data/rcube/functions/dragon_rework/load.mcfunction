@@ -12,7 +12,7 @@ data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": 
 # Data
 scoreboard objectives add rcube_dragonRework.timer.attacks dummy
 scoreboard objectives add rcube_dragonRework.phase dummy
-scoreboard objectives add rcube_dragonRework.dragon.health dummy
+scoreboard objectives add rcube_dragonRework.health dummy "[rcube:dragon_rework] Health"
 scoreboard objectives add rcube_dragonRework.store dummy
 scoreboard objectives add rcube_dragonRework.timer.music dummy
 scoreboard objectives add rcube_dragonRework.UUID0 dummy
@@ -20,7 +20,7 @@ scoreboard objectives add rcube_dragonRework.UUID1 dummy
 scoreboard objectives add rcube_dragonRework.UUID2 dummy
 scoreboard objectives add rcube_dragonRework.UUID3 dummy
 scoreboard objectives add rcube_dragonRework.const dummy
-scoreboard objectives add rcube_dragonRework.temp dummy "[rcube:dragon_rework] Temp (clear before + after use)"
+scoreboard objectives add rcube_dragonRework.temp dummy "[rcube:dragon_rework] Temp (clear)"
 scoreboard objectives add rcube_dragonRework.death.damage.total dummy
 scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
 scoreboard objectives add rcube_dragonRework.death.players_do dummy

@@ -66,7 +66,7 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 # Crystal Tags
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run tag @e[tag=dragon_rework.crystalInit,type=minecraft:end_crystal] remove dragon_rework.crystalInit
 # Reset Scoreboard
-execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.dragon.health
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.health
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.timer.music
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.timer.attacks
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.phase
@@ -80,10 +80,6 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 # Set state to dead
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run data modify storage rcube:dragon_rework root.alive set value false
 
-
-# Handle Miniboss Death
-execute unless entity @e[tag=dragon_rework.miniboss] run kill @e[tag=dragon_rework.miniboss.minion]
-
 # Miniboss Bossbars
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss value run data get entity @s Health
 execute if entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible true
@@ -91,7 +87,7 @@ execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:drago
 bossbar set rcube:dragon_rework.miniboss players @a
 
 # Tick Miniboss
-execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework/attacks/mad/miniboss/tick
+execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework/attacks/miniboss/tick
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
 execute as @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
