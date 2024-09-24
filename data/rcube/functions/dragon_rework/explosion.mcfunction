@@ -13,5 +13,5 @@ execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity
 
 # Loop
 scoreboard players add Explosion rcube_dragonRework.store 1
-execute if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] unless score Explosion rcube_dragonRework.store matches 3.. run schedule function rcube:dragon_rework/explosion 10t append
-execute if entity @s[tag=dragon_rework.UNHINGED] unless score Explosion rcube_dragonRework.store matches 6.. run schedule function rcube:dragon_rework/explosion 8t append
+execute as @e[tag=dragon_rework.dragonInit] if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] unless score Explosion rcube_dragonRework.store matches 3.. run schedule function rcube:dragon_rework/explosion 10t append
+execute as @e[tag=dragon_rework.dragonInit] if entity @s[tag=dragon_rework.UNHINGED] unless score Explosion rcube_dragonRework.store matches 6.. run schedule function rcube:dragon_rework/explosion 8t append
