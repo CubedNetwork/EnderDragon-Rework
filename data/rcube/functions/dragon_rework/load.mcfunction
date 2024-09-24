@@ -54,5 +54,5 @@ execute in minecraft:the_end unless entity @e[tag=dragon_rework.monumentMarker,t
 
 # Load Message
 execute unless data storage rcube:dragon_rework root.load_message run data modify storage rcube:dragon_rework root.load_message set value true
-execute if data storage rcube:dragon_rework root{load_message:true,installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true},"Reloaded."]
-execute if data storage rcube:dragon_rework root{load_message:true} unless data storage rcube:dragon_rework root{installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true},"is missing dependencies.\n",{"text": "   Missing Dependencies:\n"},{"nbt":"dependencies[].missing[]","storage":"rcube:dragon_rework","interpret":true,"separator":"\n\n"}]
+execute if data storage rcube:dragon_rework root{load_message:true,installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true,"separator": ""},"Reloaded."]
+execute if data storage rcube:dragon_rework root{load_message:true} unless data storage rcube:dragon_rework root{installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true,"separator": ""},"is missing dependencies.\n",{"text": "   Missing Dependencies:\n"},{"nbt":"dependencies[].missing[]","storage":"rcube:dragon_rework","interpret":true,"separator":"\n\n"}]
