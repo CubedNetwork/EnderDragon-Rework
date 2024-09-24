@@ -27,4 +27,4 @@ tag @e[tag=dragon_rework.fireball_rapid.temp] remove dragon_rework.fireball_rapi
 tag @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] remove dragon_rework.fireball_rapid.VICTIM.temp
 
 # Loop if players left
-execute unless entity @a[scores={rcube_dragonRework.temp=2}] run function rcube:dragon_rework/sch/fireball/rapid/summon
+execute if entity @a[scores={rcube_dragonRework.temp=2}] run function rcube:dragon_rework/sch/fireball/rapid/summon

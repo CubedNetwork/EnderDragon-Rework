@@ -27,4 +27,4 @@ tag @e[tag=dragon_rework.arrow_beam.temp] remove dragon_rework.arrow_beam.temp
 tag @a[tag=dragon_rework.miniboss.arrow_beam.VICTIM.temp] remove dragon_rework.miniboss.arrow_beam.VICTIM.temp
 
 # Loop if players left
-execute unless entity @a[scores={rcube_dragonRework.temp=5}] run function rcube:dragon_rework/attacks/miniboss/abilities/arrow_beam/spawn
+execute if entity @a[scores={rcube_dragonRework.temp=5}] run function rcube:dragon_rework/attacks/miniboss/abilities/arrow_beam/spawn
