@@ -4,6 +4,9 @@
 # Called By: rcube:dragon_rework/attacks/run
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=3})
 
+# Remove previous fireballs
+kill @e[tag=dragon_rework.fireball_strong]
+
 # Prepare players
 scoreboard players set @a[predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] rcube_dragonRework.temp 3
 
