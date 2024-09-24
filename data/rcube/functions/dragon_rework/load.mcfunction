@@ -10,22 +10,22 @@ function rcube:dragon_rework/deps
 data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
 
 # Data
-scoreboard objectives add rcube_dragonRework.timer.attacks dummy
-scoreboard objectives add rcube_dragonRework.phase dummy
+scoreboard objectives add rcube_dragonRework.timer.attacks dummy "[rcube:dragon_rework] Attack Timer"
+scoreboard objectives add rcube_dragonRework.phase dummy "[rcube:dragon_rework] Phase (attack number)"
 scoreboard objectives add rcube_dragonRework.health dummy "[rcube:dragon_rework] Health"
-scoreboard objectives add rcube_dragonRework.store dummy
-scoreboard objectives add rcube_dragonRework.timer.music dummy
-scoreboard objectives add rcube_dragonRework.UUID0 dummy
-scoreboard objectives add rcube_dragonRework.UUID1 dummy
-scoreboard objectives add rcube_dragonRework.UUID2 dummy
-scoreboard objectives add rcube_dragonRework.UUID3 dummy
-scoreboard objectives add rcube_dragonRework.const dummy
-scoreboard objectives add rcube_dragonRework.temp dummy "[rcube:dragon_rework] Temp (clear)"
-scoreboard objectives add rcube_dragonRework.death.damage.total dummy
-scoreboard objectives add rcube_dragonRework.death.damage.rank dummy
-scoreboard objectives add rcube_dragonRework.death.players_do dummy
-scoreboard objectives add rcube_dragonRework.death.temp dummy
-scoreboard objectives add rcube_dragonRework.deps dummy
+scoreboard objectives add rcube_dragonRework.store dummy "[rcube:dragon_rework] Data"
+scoreboard objectives add rcube_dragonRework.timer.music dummy "[rcube:dragon_rework] Music Timer"
+scoreboard objectives add rcube_dragonRework.UUID0 dummy "[rcube:dragon_rework] Entity UUID0"
+scoreboard objectives add rcube_dragonRework.UUID1 dummy "[rcube:dragon_rework] Entity UUID1"
+scoreboard objectives add rcube_dragonRework.UUID2 dummy "[rcube:dragon_rework] Entity UUID2"
+scoreboard objectives add rcube_dragonRework.UUID3 dummy "[rcube:dragon_rework] Entity UUID3"
+scoreboard objectives add rcube_dragonRework.const dummy "[rcube:dragon_rework] Constant Data"
+scoreboard objectives add rcube_dragonRework.temp dummy "[rcube:dragon_rework] Temporary Data"
+scoreboard objectives add rcube_dragonRework.death.damage.total dummy "[rcube:dragon_rework] Total Damage"
+scoreboard objectives add rcube_dragonRework.death.damage.rank dummy "[rcube:dragon_rework] Damage Rank"
+scoreboard objectives add rcube_dragonRework.death.players_do dummy "[rcube:dragon_rework] Your Damage Data"
+scoreboard objectives add rcube_dragonRework.death.temp dummy "[rcube:dragon_rework] Temporary Death Data"
+scoreboard objectives add rcube_dragonRework.deps dummy "[rcube:dragon_rework] Dependencies"
 
 # Pixel Data
 # "PLAYER dealt the final blow."
