@@ -14,7 +14,7 @@ function rcube:dragon_rework/attacks/enderman_aggro/loop
 
 # Tell players who is being targeted
 tellraw @a ""
-execute unless entity @s[tag=!dragon_rework.UNHINGED] as @a[tag=dragon_rework.enderman.VICTIM] run tellraw @a ["",{"text":">> ","color": "dark_red"},{"selector":"@s","color": "dark_red","bold": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
+execute if entity @s[tag=!dragon_rework.UNHINGED] as @a[tag=dragon_rework.enderman.VICTIM] run tellraw @a ["",{"text":">> ","color": "dark_red"},{"selector":"@s","color": "dark_red","bold": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
 execute if entity @s[tag=dragon_rework.UNHINGED] run tellraw @a ["",{"text":">> ","color": "dark_red"},{"text":"Everyone","color": "dark_red","bold": true,"underlined": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
 tellraw @a ""
 
