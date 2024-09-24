@@ -9,8 +9,8 @@ scoreboard players reset @a[tag=dragon_rework.fireball_rapid.VICTIM.temp]
 execute as @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] run tag @s add dragon_rework.fireball_rapid.VICTIM
 
 # Summon fireball
-execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] facing entity @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] eyes positioned ^ ^ ^17 positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:2,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball_rapid","dragon_rework.fireball_rapid.temp","dragon_rework.remove"]}
-execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.UNHINGED] facing entity @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] eyes positioned ^ ^ ^17 positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:3,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball_rapid","dragon_rework.fireball_rapid.temp","dragon_rework.remove"]}
+execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] facing entity @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] eyes positioned ^ ^ ^17 positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:3,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball_rapid","dragon_rework.fireball_rapid.temp","dragon_rework.remove"]}
+execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.UNHINGED] facing entity @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] eyes positioned ^ ^ ^17 positioned 0. 0 0. run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:4,power:[0.0,-1.0,0.0],Tags:["dragon_rework.fireball","dragon_rework.fireball_rapid","dragon_rework.fireball_rapid.temp","dragon_rework.remove"]}
 
 # Play sound
 execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity.ghast.shoot hostile @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] ~ ~ ~ 10
