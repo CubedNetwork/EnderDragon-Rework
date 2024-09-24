@@ -10,7 +10,7 @@ tag @a[predicate=rcube:dragon_rework/end_centre] add dragon_rework.player.partic
 # Timer + Attack handling
 execute unless entity @s[tag=dragon_rework.attacks.timer] if entity @a[predicate=rcube:dragon_rework/end_centre,gamemode=!spectator] run tag @s add dragon_rework.attacks.timer
 execute if entity @s[tag=dragon_rework.attacks.timer] run scoreboard players remove @s rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/run
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/run
 execute if entity @s[tag=!dragon_rework.MAD,tag=!dragon_rework.UNHINGED] if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 400
 execute if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 200
 execute if entity @s[tag=dragon_rework.UNHINGED] if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run scoreboard players set @s rcube_dragonRework.timer.attacks 150
@@ -43,8 +43,8 @@ execute as @a[tag=dragon_rework.player.music] run scoreboard players remove @s r
 execute as @a[tag=dragon_rework.player.music,scores={rcube_dragonRework.timer.music=0}] at @s run function rcube:dragon_rework/music
 
 # Reset timers
-execute as @a[tag=dragon_rework.player.music,tag=!dragon_rework.player.musicMAD] if entity @s[scores={rcube_dragonRework.timer.music=0}] run scoreboard players set @s rcube_dragonRework.timer.music 5377
-execute as @a[tag=dragon_rework.player.musicMAD] if entity @s[scores={rcube_dragonRework.timer.music=0}] run scoreboard players set @s rcube_dragonRework.timer.music 5131
+execute as @a[tag=dragon_rework.player.music,tag=!dragon_rework.player.musicMAD] if entity @s[scores={rcube_dragonRework.timer.music=..0}] run scoreboard players set @s rcube_dragonRework.timer.music 5377
+execute as @a[tag=dragon_rework.player.musicMAD] if entity @s[scores={rcube_dragonRework.timer.music=..0}] run scoreboard players set @s rcube_dragonRework.timer.music 5131
 
 
 # #####################
@@ -150,9 +150,9 @@ execute as @e[tag=dragon_rework.endZombie.temp] run tag @s remove dragon_rework.
 
 # Handle becoming MAD
 execute if entity @s[scores={rcube_dragonRework.health=126..250}] unless entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/attacks/miniboss/summon
-execute if entity @s[scores={rcube_dragonRework.health=126..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
 execute if entity @s[scores={rcube_dragonRework.health=126..250}] unless entity @s[tag=dragon_rework.MAD] run scoreboard players reset Explosion rcube_dragonRework.store
 execute if entity @s[scores={rcube_dragonRework.health=126..250}] unless entity @s[tag=dragon_rework.MAD] run function rcube:dragon_rework/explosion
+execute if entity @s[scores={rcube_dragonRework.health=126..250}] unless entity @s[tag=dragon_rework.MAD] run tag @s add dragon_rework.MAD
 execute if entity @s[tag=dragon_rework.MAD,tag=!dragon_rework.UNHINGED] at @s run particle crit ~ ~ ~ 3 3 3 1 10 force
 
 # Handle becoming UNHINGED

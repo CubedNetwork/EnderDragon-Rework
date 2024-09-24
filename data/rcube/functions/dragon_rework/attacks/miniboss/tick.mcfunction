@@ -48,7 +48,7 @@ execute unless entity @s[tag=dragon_rework.miniboss.init] run function rcube:dra
 # #####################
 execute unless entity @s[tag=dragon_rework.miniboss.init] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 scoreboard players remove @s[tag=dragon_rework.miniboss.init] rcube_dragonRework.timer.attacks 1
-execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0}] run function rcube:dragon_rework/attacks/miniboss/abilities/run
+execute if entity @s[scores={rcube_dragonRework.timer.attacks=0}] run function rcube:dragon_rework/attacks/miniboss/abilities/run
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0},tag=!dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 900
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=..0},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 450
 execute if entity @s[scores={rcube_dragonRework.timer.attacks=451..},tag=dragon_rework.minibossMAD] run scoreboard players set @s rcube_dragonRework.timer.attacks 450
