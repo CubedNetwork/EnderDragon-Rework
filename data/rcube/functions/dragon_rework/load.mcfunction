@@ -6,6 +6,10 @@
 # Check dependencies
 function rcube:dragon_rework/deps
 
+# Set install state
+execute if data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value true
+execute unless data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value false
+
 # Setup prefix
 data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
 
