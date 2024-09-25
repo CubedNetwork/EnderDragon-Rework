@@ -16,10 +16,10 @@ execute if predicate rcube:api/_core/installed if data storage rcube:api/core {i
 execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} store result score $ver.core.minor rcube_dragonRework.deps run data get storage rcube:api/core version.this.minor
 execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} store result score $ver.core.patch rcube_dragonRework.deps run data get storage rcube:api/core version.this.patch
 execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} store result score $ver.core.game.major rcube_dragonRework.deps run data get storage rcube:api/core version.game.major
-execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} store result score $ver.core.patch.minor rcube_dragonRework.deps run data get storage rcube:api/core version.game.minor
+execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} store result score $ver.core.game.patch rcube_dragonRework.deps run data get storage rcube:api/core version.game.patch
 
 # Set state
-execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} if score $ver.core.major rcube_dragonRework.deps matches 0 if score $ver.core.game.major rcube_dragonRework.deps matches 20 if score $ver.core.game.minor rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:true}
+execute if predicate rcube:api/_core/installed if data storage rcube:api/core {installed:true} if score $ver.core.major rcube_dragonRework.deps matches 0 if score $ver.core.game.major rcube_dragonRework.deps matches 20 if score $ver.core.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"core",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'core\'","color":"gray"}]'}
 
 
@@ -32,10 +32,10 @@ execute if predicate rcube:api/centre_string/installed if data storage rcube:api
 execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} store result score $ver.centre_string.minor rcube_dragonRework.deps run data get storage rcube:api/centre_string version.this.minor
 execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} store result score $ver.centre_string.patch rcube_dragonRework.deps run data get storage rcube:api/centre_string version.this.patch
 execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} store result score $ver.centre_string.game.major rcube_dragonRework.deps run data get storage rcube:api/centre_string version.game.major
-execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} store result score $ver.centre_string.patch.minor rcube_dragonRework.deps run data get storage rcube:api/centre_string version.game.minor
+execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} store result score $ver.centre_string.game.patch rcube_dragonRework.deps run data get storage rcube:api/centre_string version.game.patch
 
 # Set state
-execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:true}
+execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string {installed:true} if score $ver.centre_string.major rcube_dragonRework.deps matches 0 if score $ver.centre_string.game.major rcube_dragonRework.deps matches 20 if score $ver.centre_string.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"centre_string",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'centre_string\'","color":"gray"}]'}
 
 
@@ -48,10 +48,10 @@ execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/
 execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} store result score $ver.damage_dealt.minor rcube_dragonRework.deps run data get storage rcube:api/damage_dealt version.this.minor
 execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} store result score $ver.damage_dealt.patch rcube_dragonRework.deps run data get storage rcube:api/damage_dealt version.this.patch
 execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} store result score $ver.damage_dealt.game.major rcube_dragonRework.deps run data get storage rcube:api/damage_dealt version.game.major
-execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} store result score $ver.damage_dealt.patch.minor rcube_dragonRework.deps run data get storage rcube:api/damage_dealt version.game.minor
+execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} store result score $ver.damage_dealt.game.patch rcube_dragonRework.deps run data get storage rcube:api/damage_dealt version.game.patch
 
 # Set state
-execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_dealt",installed:true}
+execute if predicate rcube:api/damage_dealt/installed if data storage rcube:api/damage_dealt {installed:true} if score $ver.damage_dealt.major rcube_dragonRework.deps matches 0 if score $ver.damage_dealt.game.major rcube_dragonRework.deps matches 20 if score $ver.damage_dealt.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_dealt",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"damage_dealt",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_dealt",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'damage_dealt\'","color":"gray"}]'}
 
 # #####################
@@ -63,10 +63,10 @@ execute if predicate rcube:api/player_name/installed if data storage rcube:api/p
 execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} store result score $ver.player_name.minor rcube_dragonRework.deps run data get storage rcube:api/player_name version.this.minor
 execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} store result score $ver.player_name.patch rcube_dragonRework.deps run data get storage rcube:api/player_name version.this.patch
 execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} store result score $ver.player_name.game.major rcube_dragonRework.deps run data get storage rcube:api/player_name version.game.major
-execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} store result score $ver.player_name.patch.minor rcube_dragonRework.deps run data get storage rcube:api/player_name version.game.minor
+execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} store result score $ver.player_name.game.patch rcube_dragonRework.deps run data get storage rcube:api/player_name version.game.patch
 
 # Set state
-execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:true}
+execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name {installed:true} if score $ver.player_name.major rcube_dragonRework.deps matches 0 if score $ver.player_name.game.major rcube_dragonRework.deps matches 20 if score $ver.player_name.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"player_name",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'player_name\'","color":"gray"}]'}
 
 
@@ -79,10 +79,10 @@ execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_ca
 execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} store result score $ver.px_calc.minor rcube_dragonRework.deps run data get storage rcube:api/px_calc version.this.minor
 execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} store result score $ver.px_calc.patch rcube_dragonRework.deps run data get storage rcube:api/px_calc version.this.patch
 execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} store result score $ver.px_calc.game.major rcube_dragonRework.deps run data get storage rcube:api/px_calc version.game.major
-execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} store result score $ver.px_calc.patch.minor rcube_dragonRework.deps run data get storage rcube:api/px_calc version.game.minor
+execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} store result score $ver.px_calc.game.patch rcube_dragonRework.deps run data get storage rcube:api/px_calc version.game.patch
 
 # Set state
-execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:true}
+execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc {installed:true} if score $ver.px_calc.major rcube_dragonRework.deps matches 0 if score $ver.px_calc.game.major rcube_dragonRework.deps matches 20 if score $ver.px_calc.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"px_calc",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'px_calc\'","color":"gray"}]'}
 
 
@@ -95,10 +95,10 @@ execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:a
 execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} store result score $ver.scoreboard_rank.minor rcube_dragonRework.deps run data get storage rcube:api/scoreboard_rank version.this.minor
 execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} store result score $ver.scoreboard_rank.patch rcube_dragonRework.deps run data get storage rcube:api/scoreboard_rank version.this.patch
 execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} store result score $ver.scoreboard_rank.game.major rcube_dragonRework.deps run data get storage rcube:api/scoreboard_rank version.game.major
-execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} store result score $ver.scoreboard_rank.patch.minor rcube_dragonRework.deps run data get storage rcube:api/scoreboard_rank version.game.minor
+execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} store result score $ver.scoreboard_rank.game.patch rcube_dragonRework.deps run data get storage rcube:api/scoreboard_rank version.game.patch
 
 # Set state
-execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:true}
+execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank {installed:true} if score $ver.scoreboard_rank.major rcube_dragonRework.deps matches 0 if score $ver.scoreboard_rank.game.major rcube_dragonRework.deps matches 20 if score $ver.scoreboard_rank.game.patch rcube_dragonRework.deps matches 1 run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:true}
 execute unless data storage rcube:dragon_rework root.dependencies[{module:"scoreboard_rank",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'scoreboard_rank\'","color":"gray"}]'}
 
 # #####################
