@@ -15,7 +15,7 @@ execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicat
 
 # Dragon Init
 execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data modify storage rcube:dragon_rework root.alive set value true
-execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data modify storage rcube:dragon_rework root.death_message_done set value true
+execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data modify storage rcube:dragon_rework root.death_message_done set value false
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,Attributes:[{Name:"generic.max_health",Base:500}]}
@@ -76,7 +76,7 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.UUID2
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run scoreboard players reset * rcube_dragonRework.UUID3
 # Send Death Message (if entity killed dragon instead of player)
-execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] unless data storage rcube:dragon_rework root{death_message_done:true} unless entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:dragon_rework/death
+execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] unless data storage rcube:dragon_rework root{death_message_done:true} unless entity @a[advancements={rcube:dragon_rework/kill_dragon=true}] run function rcube:dragon_rework/death/run
 # Set state to dead
 execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_dragon] if data storage rcube:dragon_rework root{alive:true} run data modify storage rcube:dragon_rework root.alive set value false
 
