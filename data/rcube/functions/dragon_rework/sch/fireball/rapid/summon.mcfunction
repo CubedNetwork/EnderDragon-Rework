@@ -5,7 +5,7 @@
 
 # Cycle victim
 execute as @a[scores={rcube_dragonRework.temp=2},limit=1] run tag @s add dragon_rework.fireball_rapid.VICTIM.temp
-scoreboard players reset @a[tag=dragon_rework.fireball_rapid.VICTIM.temp]
+scoreboard players reset @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] rcube_dragonRework.temp
 execute as @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] run tag @s add dragon_rework.fireball_rapid.VICTIM
 
 # Summon fireball
