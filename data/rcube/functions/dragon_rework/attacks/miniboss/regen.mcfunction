@@ -1,6 +1,6 @@
 # Made by: @rcube.
 # Give miniboss regen
-# Run every 2.5s (50t)
+# Run every 4s (50t)
 #
 # Called By: rcube:dragon_rework/attacks/miniboss/regen
 
@@ -12,4 +12,4 @@ execute store result storage rcube:dragon_rework root.health.miniboss float 0.00
 execute as @e[tag=dragon_rework.miniboss] unless score $miniboss.regen rcube_dragonRework.store matches 15000.. run data modify entity @s Health set from storage rcube:dragon_rework root.health.miniboss
 
 # Loop
-execute if entity @e[tag=dragon_rework.miniboss] run schedule function rcube:dragon_rework/attacks/miniboss/regen 50t
+execute if entity @e[tag=dragon_rework.miniboss] run schedule function rcube:dragon_rework/attacks/miniboss/regen 4s
