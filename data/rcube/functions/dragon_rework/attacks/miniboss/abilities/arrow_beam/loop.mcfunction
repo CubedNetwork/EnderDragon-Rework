@@ -11,4 +11,4 @@ execute as @e[tag=dragon_rework.miniboss.arrow_beam,nbt={inGround:true}] run kil
 
 # Loop
 scoreboard players remove $arrow_beam.loop rcube_dragonRework.store 1
-execute if score $arrow_beam.loop rcube_dragonRework.store matches ..0 run schedule function rcube:dragon_rework/attacks/miniboss/abilities/arrow_beam/loop 2t append
+execute if score $arrow_beam.loop rcube_dragonRework.store matches 1.. run schedule function rcube:dragon_rework/attacks/miniboss/abilities/arrow_beam/loop 2t append
