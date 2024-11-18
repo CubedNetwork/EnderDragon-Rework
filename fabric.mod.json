@@ -5,8 +5,9 @@
   "name": "Ender Dragon Rework",
   "description": "An up in difficulty for Minecraft's final boss.\nWith more health and attacks, the fight finally feels like the final confrontation.",
   "authors": [
-    "RCube_",
-    "MrGenie151"
+    "rcubedev",
+    "MrGenie151",
+    "oTurtly"
   ],
   "contact": {
     "sources": "https://github.com/CubedNetwork/EnderDragon-Rework",
