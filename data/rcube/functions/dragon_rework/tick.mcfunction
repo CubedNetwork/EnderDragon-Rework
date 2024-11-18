@@ -91,3 +91,6 @@ execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework
 
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
 execute as @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
+
+# Loop tick
+schedule function rcube:dragon_rework/tick 1t replace

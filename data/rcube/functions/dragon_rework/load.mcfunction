@@ -60,3 +60,7 @@ execute in minecraft:the_end unless entity @e[tag=dragon_rework.monumentMarker,t
 execute unless data storage rcube:dragon_rework root.load_message run data modify storage rcube:dragon_rework root.load_message set value true
 execute if data storage rcube:dragon_rework root{load_message:true,installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true,"separator": ""},"Reloaded."]
 execute if data storage rcube:dragon_rework root{load_message:true} unless data storage rcube:dragon_rework root{installed:true} run tellraw @a ["",{"nbt": "root.prefix[].array","storage": "rcube:dragon_rework","interpret": true,"separator": ""},"is missing dependencies.\n",{"text": "   Missing Dependencies:\n"},{"nbt":"root.dependencies[].missing","storage":"rcube:dragon_rework","interpret":true,"separator":"\n"},"\n"]
+
+# Run tick
+schedule clear rcube:dragon_rework/tick
+schedule function rcube:dragon_rework/tick 1t replace
