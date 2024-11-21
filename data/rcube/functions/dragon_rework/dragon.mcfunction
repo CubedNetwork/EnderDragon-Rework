@@ -56,16 +56,13 @@ execute unless entity @s[tag=dragon_rework.music] run tag @s add dragon_rework.m
 # General
 execute if entity @s[tag=dragon_rework.music] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.music] run tag @s add dragon_rework.player.music
 
-# Stop Default Music
-execute if entity @s[tag=dragon_rework.music] run stopsound @a[predicate=rcube:dragon_rework/end_centre] music
-
 # Phase 1
 execute if entity @s[tag=dragon_rework.music,tag=!dragon_rework.music.MAD] run tag @s add dragon_rework.music.phase1
 
 # MAD, UNHINGED
 execute if entity @s[scores={rcube_dragonRework.health=126..250}] run tag @s add dragon_rework.music.MAD
 execute if entity @s[tag=dragon_rework.music.MAD,tag=dragon_rework.music.phase1] run tag @s remove dragon_rework.music.phase1
-execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run stopsound @s record rcube:dragon_rework.phase1
+execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run stopsound @s music rcube:dragon_rework.phase1
 execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=!dragon_rework.player.musicMAD.init] run tag @s add dragon_rework.player.musicMAD.init
 execute if entity @s[tag=dragon_rework.music.MAD] as @a[predicate=rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD.init,tag=!dragon_rework.player.musicMAD] run tag @s add dragon_rework.player.musicMAD
 
@@ -77,13 +74,13 @@ execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player
 # Phase 1
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.music] run tag @s remove dragon_rework.player.music
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.music.timerInit] run tag @s remove dragon_rework.player.music.timerInit
-execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s record rcube:dragon_rework.phase1
+execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s music rcube:dragon_rework.phase1
 
 # MAD, UNHINGED
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD] run tag @s remove dragon_rework.player.musicMAD
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD.timerInit] run tag @s remove dragon_rework.player.musicMAD.timerInit
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD.init] run tag @s remove dragon_rework.player.musicMAD.init
-execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s record rcube:dragon_rework.phase2
+execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s music rcube:dragon_rework.phase2
 
 # ##########################
 # End Crystal Handling
