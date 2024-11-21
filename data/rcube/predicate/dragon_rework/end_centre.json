@@ -11,7 +11,7 @@
 		  "max": 200
 		}
 	  },
+	  "biomes": "minecraft:the_end",
 	  "dimension": "minecraft:the_end"
 	}
-  }
-  
+}
