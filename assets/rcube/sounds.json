@@ -1,14 +1,14 @@
 {
 	"dragon_rework.phase1": {
 		"replace": false,
-		"category" : "record",
+		"category" : "music",
 		"sounds" : [
 			"rcube:dragon_rework/phase1"
 		]
 	},
 	"dragon_rework.phase2": {
 		"replace": false,
-		"category" : "record",
+		"category" : "music",
 		"sounds" : [
 			"rcube:dragon_rework/phase2"
 		]
