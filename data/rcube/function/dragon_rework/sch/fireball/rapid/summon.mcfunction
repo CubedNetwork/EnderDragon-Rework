@@ -3,6 +3,8 @@
 #
 # Called By: rcube:dragon_rework/sch/fireball/rapid/launch, THIS
 
+# update "Power" and possibly others to 1.20.5+
+
 # Cycle victim
 execute as @a[scores={rcube_dragonRework.temp=2},limit=1] run tag @s add dragon_rework.fireball_rapid.VICTIM.temp
 scoreboard players reset @a[tag=dragon_rework.fireball_rapid.VICTIM.temp] rcube_dragonRework.temp

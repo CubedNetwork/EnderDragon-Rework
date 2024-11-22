@@ -4,6 +4,8 @@
 # Called By: rcube:dragon_rework/attacks/rapid_fireball
 # Ran as: Entity, Ender Dragon (scores={rcube_dragonRework.phase=3})
 
+# update "Power" and possibly others to 1.20.5+
+
 # Cycle victim
 execute as @a[scores={rcube_dragonRework.temp=3},limit=1] run tag @s add dragon_rework.fireball_strong.VICTIM.temp
 scoreboard players reset @a[tag=dragon_rework.fireball_strong.VICTIM.temp] rcube_dragonRework.temp

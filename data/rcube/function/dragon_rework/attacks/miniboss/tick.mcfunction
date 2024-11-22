@@ -4,6 +4,8 @@
 # Called By: rcube:dragon_rework/tick
 # Ran as: Entity(custom), Miniboss
 
+# update checks to 1.20.5+
+
 # Store location with Marker
 tp @e[tag=dragon_rework.miniboss.loc] ~ ~ ~
 
