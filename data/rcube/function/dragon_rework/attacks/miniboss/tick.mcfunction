@@ -12,7 +12,7 @@ kill @e[tag=dragon_rework.crystal.miniboss]
 execute as @e[type=minecraft:end_crystal,predicate=rcube:dragon_rework/end_centre] run data modify entity @s Invulnerable set value true
 
 # Set MAD state - check
-execute if entity @s[nbt=!{HandItems:[{},{id:"minecraft:totem_of_undying",count:1b}]}] unless entity @s[tag=dragon_rework.minibossMAD] run scoreboard players set $miniboss.MAD rcube_dragonRework.store 1
+execute unless items entity @s weapon.offhand minecraft:totem_of_undying unless entity @s[tag=dragon_rework.minibossMAD] run scoreboard players set $miniboss.MAD rcube_dragonRework.store 1
 execute unless score $miniboss.MAD rcube_dragonRework.store matches 0..1 run scoreboard players set $miniboss.MAD rcube_dragonRework.store 0
 
 # #####################
