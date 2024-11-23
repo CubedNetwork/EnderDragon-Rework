@@ -1,4 +1,4 @@
-name: Bump Semver
+name: Bump Ver
 
 on:
   push:
