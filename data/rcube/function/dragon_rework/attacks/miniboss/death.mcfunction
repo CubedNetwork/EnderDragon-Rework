@@ -4,7 +4,7 @@
 # Called By: rcube:dragon_rework/dragon
 
 # Incase death handling not done (non-explosion)
-execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[type=minecraft:end_crystal,predicate=rcube:dragon_rework/end_centre] run data modify entity @s Invulnerable set value false
+execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[type=minecraft:end_crystal,tag=dragon_rework.crystal.invulnerable] run data modify entity @s Invulnerable set value false
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] run kill @e[tag=dragon_rework.miniboss.minion]
 
 # Self destruct
