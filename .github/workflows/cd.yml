@@ -6,6 +6,19 @@ on:
       - "v*.*.*"
 
 jobs:
+  check-commands:
+    name: Check commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - uses: mcbeet/check-commands@v1.1.1
+        with:
+          source: .
+          minecraft: 1.21.2
+          stats: true
+
   generate-changelog:
     name: Generate Changelog
     runs-on: ubuntu-latest
@@ -30,7 +43,7 @@ jobs:
   
   publish-release:
     name: Publish Release
-    needs: generate-changelog
+    needs: [check-commands, generate-changelog]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -40,31 +53,31 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Read Project Version
-        id: mod-version
-        uses: christian-draeger/read-properties@1.1.1
-        with:
-          path: "version.properties"
-          properties: "version"
-  
-      - name: Zip Jar
-        run: mkdir zip | zip -r "zip/Ender Dragon Rework.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties"
+        shell: bash
+        run: echo "RELEASE_VERSION=${GITHUB_REF:11}" >> $GITHUB_ENV
+
+      - name: Create JAR
+        run: |
+          mkdir zip
+          zip -r "zip/ender_dragon_rework-v${{ env.RELEASE_VERSION }}.jar" ./ -x ".git/*" ".github/*"  "git-cliff/*" ".git/*" "zip/*" "README.md" "version.properties"
+          cp "zip/ender_dragon_rework-v${{ env.RELEASE_VERSION }}.jar" "zip/ender_dragon_rework.jar"
 
       - name: Publish to GitHub
         if: ${{ !contains(github.ref, '-') }}
-        uses: "softprops/action-gh-release@v2.0.6"
+        uses: softprops/action-gh-release@v2.0.6
         with:
-          name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
-          tag_name: "v${{ steps.mod-version.outputs.version }}"
+          name: "Ender Dragon Rework v${{ env.RELEASE_VERSION }}"
+          tag_name: "v${{ env.RELEASE_VERSION }}"
           body: ${{ needs.generate-changelog.outputs.release_body }}
           prerelease: false
-          files: "zip/Ender Dragon Rework.jar"
+          files: "zip/ender_dragon_rework-v${{ env.RELEASE_VERSION }}.jar"
 
       - name: Publish to GitHub (pre-release)
         if: ${{ contains(github.ref, '-') }}
-        uses: "softprops/action-gh-release@v2.0.6"
+        uses: softprops/action-gh-release@v2.0.6
         with:
-          name: "Ender Dragon Rework v${{ steps.mod-version.outputs.version }}"
-          tag_name: "v${{ steps.mod-version.outputs.version }}"
+          name: "Ender Dragon Rework v${{ env.RELEASE_VERSION }}"
+          tag_name: "v${{ env.RELEASE_VERSION }}"
           body: ${{ needs.generate-changelog.outputs.release_body }}
           prerelease: true
-          files: "zip/Ender Dragon Rework.jar"
+          files: "zip/ender_dragon_rework-v${{ env.RELEASE_VERSION }}.jar"

@@ -2,10 +2,8 @@ name: Bump Semver
 
 on:
   push:
-    paths:
-      - "version.properties"
-    # tags:
-    #   - "chore(release): Prepare for *"
+    tags:
+      - "chore(release): Prepare for *"
 
 jobs:
   bump-ver:
@@ -16,31 +14,31 @@ jobs:
     timeout-minutes: 2
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Read Project Version
-        id: mod-version
-        uses: christian-draeger/read-properties@1.1.1
-        with:
-          path: "version.properties"
-          properties: "version"
+        shell: bash
+        run: |
+          echo "COMMIT=${{ github.event.workflow_run.head_commit.message }}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=${COMMIT:29}" >> $GITHUB_ENV
 
       - name: Bump Version (fabric.mod.json)
         uses: restackio/update-json-file-action@2.1
         with:
           file: fabric.mod.json
-          fields: "{\"version\": \"${{ steps.mod-version.outputs.version }}\"}"
+          fields: "{\"version\": \"${{ env.RELEASE_VERSION }}\"}"
 
       - name: Bump Version (quilt.mod.json)
         uses: restackio/update-json-file-action@2.1
         with:
           file: quilt.mod.json
-          fields: "{\"quilt_loader.version\": \"${{ steps.mod-version.outputs.version }}\"}"
+          fields: "{\"quilt_loader.version\": \"${{ env.RELEASE_VERSION }}\"}"
 
       - name: Merge to GitHub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "v${{ steps.mod-version.outputs.version }}"
+          git commit -m "v${{ env.RELEASE_VERSION }}"
           git push
