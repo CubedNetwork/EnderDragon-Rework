@@ -166,7 +166,7 @@ execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rew
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[tag=dragon_rework.crystal.invulnerable] run tag @s remove dragon_rework.crystal.invulnerable
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] run kill @e[tag=dragon_rework.miniboss.minion]
 execute unless entity @e[tag=dragon_rework.miniboss] as @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] run tag @s add dragon_rework.miniboss.dead
-execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc] run schedule function rcube:dragon_rework/attacks/miniboss/death 2s append
+execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc] run schedule function rcube:dragon_rework/attacks/miniboss/death 30t append
 
 # Remove beds
 execute store success score success.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
