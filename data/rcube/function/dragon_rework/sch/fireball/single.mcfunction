@@ -18,7 +18,7 @@ execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework
 execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.UNHINGED] facing entity @a[tag=dragon_rework.fireball_strong.VICTIM.temp] eyes run summon fireball ^ ^ ^.1 {HasVisualFire:false,ExplosionPower:6b,acceleration_power:0.5d,Tags:["dragon_rework.fireball_strong.temp","dragon_rework.fireball","dragon_rework.fireball_strong","dragon_rework.remove"],Item:{id:"minecraft:dragon_egg",Count:1b}}
 
 # Play sound
-execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity.ghast.shoot hostile @a[tag=dragon_rework.fireball_strong.VICTIM.temp] ~ ~ ~ 10
+execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity.ender_dragon.shoot hostile @a[tag=dragon_rework.fireball_strong.VICTIM.temp] ~ ~ ~ 10
 
 # Set Owner
 data modify entity @e[tag=dragon_rework.fireball_strong.temp,limit=1] Owner set from entity @e[tag=dragon_rework.dragonInit,limit=1] UUID
