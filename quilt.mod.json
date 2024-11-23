@@ -6,10 +6,11 @@
     "version": "1.0.0-alpha.3",
     "metadata": {
       "name": "Ender Dragon Rework",
-      "description": "An up in difficulty for Minecraft's final boss.\nWith more health and more attacks, the fight finally feels like the final confrontation.",
+      "description": "An up in difficulty for Minecraft's final boss.\nWith more health and attacks, the fight finally feels like the final confrontation.",
       "contributors": {
-        "RCube": "Owner",
-        "MrGenie151": "Former Author"
+        "rcubedev": "Owner",
+        "MrGenie151": "Former Author",
+        "oTurtly": "Idea Contributor"
       },
       "contact": {
         "sources": "https://github.com/CubedNetwork/EnderDragon-Rework",
