@@ -11,7 +11,7 @@ execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.storedUUID] run fun
 
 # Register End Crystal locations
 execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] at @s unless entity @e[tag=dragon_rework.dragonInit] unless data storage rcube:dragon_rework root{previously_defeated:true} unless entity @e[tag=dragon_rework.monumentMarker,distance=..5] at @s run summon marker ~ ~ ~ {Tags:["dragon_rework.crystal", "dragon_rework.remove"]}
-execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] at @s unless entity @e[tag=dragon_rework.dragonInit] run tag @s add dragon_rework.crystalInit
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicate=rcube:dragon_rework/end_centre] at @s unless entity @e[tag=dragon_rework.dragonInit] if entity @e[tag=dragon_rework.crystal,distance=..1] run tag @s add dragon_rework.crystalInit
 
 # Dragon Init
 execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data modify storage rcube:dragon_rework root.alive set value true

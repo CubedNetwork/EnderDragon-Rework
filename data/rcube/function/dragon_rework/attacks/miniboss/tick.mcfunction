@@ -9,7 +9,8 @@ kill @e[tag=dragon_rework.endZombie]
 kill @e[tag=dragon_rework.crystal.miniboss]
 
 # Crystal invunerability
-execute as @e[type=minecraft:end_crystal,predicate=rcube:dragon_rework/end_centre] run data modify entity @s Invulnerable set value true
+execute as @e[type=minecraft:end_crystal,tag=dragon_rework.crystalInit] at @s run tag @s add dragon_rework.crystal.invulnerable
+execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystal.invulnerable] run data modify entity @s Invulnerable set value true
 
 # Set MAD state - check
 execute unless items entity @s weapon.offhand minecraft:totem_of_undying unless entity @s[tag=dragon_rework.minibossMAD] run scoreboard players set $miniboss.MAD rcube_dragonRework.store 1
