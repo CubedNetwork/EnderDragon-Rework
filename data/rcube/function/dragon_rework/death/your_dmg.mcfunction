@@ -14,26 +14,26 @@ scoreboard players reset @a[tag=dragon_rework.player.your_dmg.temp] rcube_dragon
 
 # Find px count of damage dealt number
 scoreboard players reset * rcube_dragonRework.death.temp
-execute as @a[tag=dragon_rework.player.your_dmg.temp] store result storage rcube:api/px_calc in.str int 1 run scoreboard players get @s rcube_dragonRework.death.damage.total
-data modify storage rcube:api/px_calc in.str set string storage rcube:api/px_calc in.str
+execute as @a[tag=dragon_rework.player.your_dmg.temp] store result storage rcube:api/px_calc root.in.str int 1 run scoreboard players get @s rcube_dragonRework.death.damage.total
+data modify storage rcube:api/px_calc root.in.str set string storage rcube:api/px_calc root.in.str
 function rcube:api/px_calc/run
-execute store result score $px rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
+execute store result score $px rcube_dragonRework.death.temp run data get storage rcube:api/px_calc root.out.px
 
 # Find px count of rank number
-execute as @a[tag=dragon_rework.player.your_dmg.temp] store result storage rcube:api/px_calc in.str int 1 run scoreboard players get @s rcube_dragonRework.death.damage.rank
-data modify storage rcube:api/px_calc in.str set string storage rcube:api/px_calc in.str
+execute as @a[tag=dragon_rework.player.your_dmg.temp] store result storage rcube:api/px_calc root.in.str int 1 run scoreboard players get @s rcube_dragonRework.death.damage.rank
+data modify storage rcube:api/px_calc root.in.str set string storage rcube:api/px_calc root.in.str
 function rcube:api/px_calc/run
-execute store result score $rank rcube_dragonRework.death.temp run data get storage rcube:api/px_calc out.px
+execute store result score $rank rcube_dragonRework.death.temp run data get storage rcube:api/px_calc root.out.px
 
 # Do math to centre text
 scoreboard players operation $px rcube_dragonRework.death.temp += $rank rcube_dragonRework.death.temp
 scoreboard players operation $px rcube_dragonRework.death.temp += #num.132 rcube_dragonRework.const
-execute store result storage rcube:api/centre_string in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
-data modify storage rcube:api/centre_string in.manual set value true
+execute store result storage rcube:api/centre_string root.in.px int 1 run scoreboard players get $px rcube_dragonRework.death.temp
+data modify storage rcube:api/centre_string root.in.manual set value true
 function rcube:api/centre_string/run
 
 # Output text
-tellraw @a[tag=dragon_rework.player.your_dmg.temp] ["",{"nbt":"out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.rank","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
+tellraw @a[tag=dragon_rework.player.your_dmg.temp] ["",{"nbt":"root.out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.rank","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
 
 # #####################
 # Other
