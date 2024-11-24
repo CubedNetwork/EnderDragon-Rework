@@ -1,0 +1,9 @@
+{
+	"music.dragon": {
+		"replace": true,
+		"category" : "music",
+		"sounds" : [
+			"minecraft:intentionally_empty"
+		]
+	}
+}
