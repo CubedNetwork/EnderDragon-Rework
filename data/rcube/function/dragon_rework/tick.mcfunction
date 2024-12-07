@@ -19,9 +19,9 @@ execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] 
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,attributes:[{id:"max_health",base:500}]}
-tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_dealt.check_damage
-tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_dealt.damage.total
-tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_dealt.health.max
+tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_taken.check_damage
+tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_taken.damage.total
+tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add damage_taken.health.max
 tag @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] add dragon_rework.dragonInit
 execute as @e[type=minecraft:ender_dragon,tag=dragon_rework.dragonInit] at @s in minecraft:the_end run function rcube:dragon_rework/dragon
 
