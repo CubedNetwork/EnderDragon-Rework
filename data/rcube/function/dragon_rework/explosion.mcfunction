@@ -9,7 +9,7 @@ execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework
 execute as @e[tag=dragon_rework.dragonInit] at @s if entity @s[tag=dragon_rework.UNHINGED] run particle minecraft:explosion ~ ~ ~ 3 3 3 1 75 force
 
 # Sound
-execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity.explode hostile @a[predicate=rcube:dragon_rework/end_centre] ~ ~ ~ 10
+execute as @e[tag=dragon_rework.dragonInit] at @s run playsound minecraft:entity.generic.explode hostile @a[predicate=rcube:dragon_rework/end_centre] ~ ~ ~ 10
 
 # Loop
 scoreboard players add Explosion rcube_dragonRework.store 1
