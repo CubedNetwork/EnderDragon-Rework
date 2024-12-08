@@ -3,14 +3,20 @@
 		"replace": false,
 		"category" : "music",
 		"sounds" : [
-			"rcube:dragon_rework/phase1"
+			{
+				"name": "rcube:dragon_rework/phase1",
+				"steam": true
+			}
 		]
 	},
 	"dragon_rework.phase2": {
 		"replace": false,
 		"category" : "music",
 		"sounds" : [
-			"rcube:dragon_rework/phase2"
+			{
+				"name": "rcube:dragon_rework/phase2",
+				"steam": true
+			}
 		]
 	}
 }
