@@ -140,8 +140,5 @@ execute unless data storage rcube:dragon_rework root{previously_defeated:true} r
 # Revoke trigger advancement
 advancement revoke @a[advancements={rcube:dragon_rework/kill_dragon=true}] only rcube:dragon_rework/kill_dragon
 
-# Set death message sent to true
-data modify storage rcube:dragon_rework root.death_message_done set value true
-
 # Remove tags
 tag @a[tag=dragon_rework.player.participated] remove dragon_rework.player.participated
