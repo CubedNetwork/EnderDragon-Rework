@@ -82,6 +82,15 @@ execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player
 execute as @a[predicate=!rcube:dragon_rework/end_centre,tag=dragon_rework.player.musicMAD.init] run tag @s remove dragon_rework.player.musicMAD.init
 execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s music rcube:dragon_rework.phase2
 
+# Logout
+execute as @a[tag=dragon_rework.player.music,scores={rcube_dragonRework.logout=1..}] run tag @s add dragon_rework.player.music.relog
+execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.music] run tag @s remove dragon_rework.player.music
+execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.music.timerInit] run tag @s remove dragon_rework.player.music.timerInit
+execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.musicMAD] run tag @s remove dragon_rework.player.musicMAD
+execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.musicMAD.timerInit] run tag @s remove dragon_rework.player.musicMAD.timerInit
+execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.musicMAD.init] run tag @s remove dragon_rework.player.musicMAD.init
+execute as @a[tag=dragon_rework.player.music.relog] run tag @s remove dragon_rework.player.music.relog
+
 # ##########################
 # End Crystal Handling
 # ##########################

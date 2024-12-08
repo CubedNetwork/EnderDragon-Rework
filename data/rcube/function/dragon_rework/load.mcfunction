@@ -14,6 +14,7 @@ execute unless data storage rcube:dragon_rework root{dependencies:[{all:true}]} 
 data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
 
 # Data
+scoreboard objectives add rcube_dragonRework.logout minecraft.custom:minecraft.leave_game "[rcube:dragon_rework] Logout"
 scoreboard objectives add rcube_dragonRework.timer.attacks dummy "[rcube:dragon_rework] Attack Timer"
 scoreboard objectives add rcube_dragonRework.phase dummy "[rcube:dragon_rework] Phase (attack number)"
 scoreboard objectives add rcube_dragonRework.health dummy "[rcube:dragon_rework] Health"
