@@ -84,6 +84,7 @@ execute as @a[predicate=!rcube:dragon_rework/end_centre] run stopsound @s music 
 
 # Logout
 execute as @a[tag=dragon_rework.player.music,scores={rcube_dragonRework.logout=1..}] run tag @s add dragon_rework.player.music.relog
+execute as @a[tag=dragon_rework.player.music.relog,scores={rcube_dragonRework.logout=1..}] run scoreboard players set @s rcube_dragonRework.logout 0
 execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.music] run tag @s remove dragon_rework.player.music
 execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.music.timerInit] run tag @s remove dragon_rework.player.music.timerInit
 execute as @a[tag=dragon_rework.player.music.relog,tag=dragon_rework.player.musicMAD] run tag @s remove dragon_rework.player.musicMAD

@@ -31,7 +31,13 @@ scoreboard objectives add rcube_dragonRework.death.damage.rank dummy "[rcube:dra
 scoreboard objectives add rcube_dragonRework.death.players_do dummy "[rcube:dragon_rework] Your Damage Data"
 scoreboard objectives add rcube_dragonRework.death.temp dummy "[rcube:dragon_rework] Temporary Death Data"
 scoreboard objectives add rcube_dragonRework.deps dummy "[rcube:dragon_rework] Dependencies"
-
+scoreboard objectives add rcube_dragonRework.item dummy "[rcube:dragon_rework] Item"
+scoreboard objectives add rcube_dragonRework.item.break_portal dummy "[rcube:dragon_rework] Item - Break Portal"
+scoreboard objectives add rcube_dragonRework.item.cooldown dummy "[rcube:dragon_rework] Item Cooldown"
+scoreboard objectives add rcube_dragonRework.item.cooldown.msg dummy "[rcube:dragon_rework] Item Cooldown - Message Cooldown"
+scoreboard players set #damage_inflict.portal rcube_dragonRework.item 2000
+scoreboard players set #damage_inflict rcube_dragonRework.item 1000
+scoreboard players set #math.20 rcube_dragonRework.const 20
 # Pixel Data
 # "PLAYER dealt the final blow."
 scoreboard players set #num.102 rcube_dragonRework.const 102

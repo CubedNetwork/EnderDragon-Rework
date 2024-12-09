@@ -90,5 +90,23 @@ execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework
 # End Monument Marker needed. Does it exist? If not, spawn one in, and teleport it down
 execute as @e[tag=dragon_rework.monumentMarker,type=minecraft:marker] at @s if block ~ ~-1 ~ air run tp ~ ~-1 ~
 
+# Dimensional Ripper Item - cooldownn
+execute as @a if score @s rcube_dragonRework.item.cooldown matches 1.. run scoreboard players remove @s rcube_dragonRework.item.cooldown 1
+execute as @a if score @s rcube_dragonRework.item.cooldown matches ..0 run scoreboard players reset @s rcube_dragonRework.item.cooldown
+execute as @a if score @s rcube_dragonRework.item.cooldown matches 1.. run scoreboard players remove @s rcube_dragonRework.item.cooldown.msg 1
+execute as @a if score @s rcube_dragonRework.item.cooldown matches ..0 run scoreboard players reset @s rcube_dragonRework.item.cooldown.msg
+execute as @a[scores={rcube_dragonRework.item.cooldown=1..},advancements={rcube:use_dimension_ripper=true}] unless score @s rcube_dragonRework.item.cooldown.msg matches 1.. run function rcube:dragon_rework/dimension_ripper/cooldown
+
+# Dimensional Ripper Item - wait (break portal)
+execute as @e[type=marker,tag=rcube_item.dimensional_ripper.break_loc] run scoreboard players remove @s rcube_dragonRework.item.break_portal 1
+execute as @e[type=marker,tag=rcube_item.dimensional_ripper.break_loc,scores={rcube_dragonRework.item.break_portal=..0}] at @s run function rcube:dragon_rework/dimension_ripper/break/portal
+
+# Dimensional Ripper Item - run
+execute as @a if score @s rcube_dragonRework.item matches -2147483648..2147483647 unless items entity @s weapon poisonous_potato[custom_data~{"rcube":{"item":{"id":"rcube:dimension_ripper"}}}] run scoreboard players reset @s rcube_dragonRework.item
+execute as @a if score @s rcube_dragonRework.item matches -2147483648..2147483647 at @s unless function rcube:dragon_rework/dimension_ripper/ray/start_ray run scoreboard players reset @s rcube_dragonRework.item
+execute as @a if score @s rcube_dragonRework.item matches -2147483648..2147483647 if entity @s[advancements={rcube:use_dimension_ripper=false}] run scoreboard players reset @s rcube_dragonRework.item
+execute as @a unless score @s rcube_dragonRework.item.cooldown matches 1.. if items entity @s weapon poisonous_potato[custom_data~{"rcube":{"item":{"id":"rcube:dimension_ripper"}}}] at @s if function rcube:dragon_rework/dimension_ripper/ray/start_ray if entity @s[advancements={rcube:use_dimension_ripper=true}] run function rcube:dragon_rework/dimension_ripper/use
+execute as @a[advancements={rcube:use_dimension_ripper=true}] run advancement revoke @s only rcube:use_dimension_ripper
+
 # Loop tick
 schedule function rcube:dragon_rework/tick 1t replace
