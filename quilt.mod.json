@@ -2,7 +2,7 @@
   "schema_version": 1,
   "quilt_loader": {
     "group": "au.rcube",
-    "id": "dragon_rework",
+    "id": "dragon-rework",
     "version": "0.12.8",
     "metadata": {
       "name": "Ender Dragon Rework",
@@ -29,6 +29,10 @@
         "id": "quilt_resource_loader",
         "versions": "*",
         "unless": "fabric-resource-loader-v0"
+      },
+      {
+        "id": "rcube-api",
+        "versions": "*"
       }
     ]
   }
