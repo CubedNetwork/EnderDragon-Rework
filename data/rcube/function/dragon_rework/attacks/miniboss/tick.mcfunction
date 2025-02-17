@@ -31,7 +31,7 @@ execute store success score success.miniboss.cobweb rcube_dragonRework.store run
 execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run title @a[distance=..20] times 5 20 10
 execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
 execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All cobwebs near miniboss will be removed","color":"red"}
-execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run scoreboard players set success.miniboss.bed rcube_dragonRework.store 0
+execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run scoreboard players set success.miniboss.cobweb rcube_dragonRework.store 0
 
 # #####################
 # Void Prevention
