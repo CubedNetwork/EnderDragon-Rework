@@ -118,6 +118,9 @@ execute as @e[tag=dragon_rework.crystal.respawn] at @s run summon minecraft:end_
   execute if entity @e[tag=dragon_rework.crystal.respawn] as @e[tag=dragon_rework.crystal] at @s unless entity @e[tag=dragon_rework.crystalInit,distance=..2,type=minecraft:end_crystal] run tag @s remove dragon_rework.crystal.near
 execute if entity @e[tag=dragon_rework.crystal.respawn] as @e[tag=dragon_rework.crystal,tag=dragon_rework.crystal.near] run tag @s add dragon_rework.crystal.cage
 
+# Make crystal arrow immune
+execute as @e[tag=dragon_rework.crystalInit,tag=!dragon_rework.arrowImmune] run tag @s add dragon_rework.arrowImmune
+
 # Cage
 execute as @e[tag=dragon_rework.crystal.cage] at @s rotated ~ 0 run function rcube:dragon_rework/crystal/cage
 
