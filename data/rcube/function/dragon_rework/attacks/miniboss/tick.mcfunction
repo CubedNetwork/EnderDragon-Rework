@@ -45,6 +45,7 @@ execute if score success.miniboss.cobweb rcube_dragonRework.store matches 1 run 
 # #####################
 # Teleport miniboss back if in void
 execute store result score yPos.miniboss rcube_dragonRework.store run data get entity @s Pos[1]
+execute if score yPos.miniboss rcube_dragonRework.store matches ..0 run effect give @s slow_falling 1 0 true
 execute if score yPos.miniboss rcube_dragonRework.store matches ..0 run tp @s @e[tag=dragon_rework.monumentMarker,type=minecraft:marker,limit=1]
 
 # #####################
