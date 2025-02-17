@@ -5,7 +5,7 @@
 		"sounds" : [
 			{
 				"name": "rcube:dragon_rework/phase1",
-				"steam": true
+				"stream": true
 			}
 		]
 	},
@@ -15,7 +15,7 @@
 		"sounds" : [
 			{
 				"name": "rcube:dragon_rework/phase2",
-				"steam": true
+				"stream": true
 			}
 		]
 	}
