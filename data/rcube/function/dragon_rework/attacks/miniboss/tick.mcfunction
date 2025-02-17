@@ -17,7 +17,7 @@ execute unless entity @s[tag=dragon_rework.minibossMAD] unless items entity @s w
 execute unless score $miniboss.MAD rcube_dragonRework.store matches 0..1 run scoreboard players set $miniboss.MAD rcube_dragonRework.store 0
 
 # #####################
-# Bed + Cobweb Removal
+# Bed + Cobweb + Anchor Removal
 # #####################
 # Remove beds
 execute store success score success.miniboss.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
@@ -25,6 +25,13 @@ execute if score success.miniboss.bed rcube_dragonRework.store matches 1 run tit
 execute if score success.miniboss.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
 execute if score success.miniboss.bed rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All beds near miniboss will be removed","color":"red"}
 execute if score success.miniboss.bed rcube_dragonRework.store matches 1 run scoreboard players set success.miniboss.bed rcube_dragonRework.store 0
+
+# Remove anchors
+execute store success score success.miniboss.respawn_anchor rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace minecraft:respawn_anchor
+execute if score success.miniboss.respawn_anchor rcube_dragonRework.store matches 1 run title @a[distance=..20] times 5 20 10
+execute if score success.miniboss.respawn_anchor rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
+execute if score success.miniboss.respawn_anchor rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All respawn anchors near miniboss will be removed","color":"red"}
+execute if score success.miniboss.respawn_anchor rcube_dragonRework.store matches 1 run scoreboard players set success.miniboss.respawn_anchor rcube_dragonRework.store 0
 
 # Remove cobwebs
 execute store success score success.miniboss.cobweb rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace minecraft:cobweb
