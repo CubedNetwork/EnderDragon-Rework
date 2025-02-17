@@ -4,9 +4,9 @@
 # Called By: rcube:dragon_rework/tick
 # Ran as: Entity(custom), Miniboss
 
-# Kill End Zombie, Crystal Miniboss
+# Kill End Zombie, Crystal Minion
 kill @e[tag=dragon_rework.endZombie]
-kill @e[tag=dragon_rework.crystal.miniboss]
+kill @e[tag=dragon_rework.crystal.minion]
 
 # Crystal invunerability
 execute as @e[type=minecraft:end_crystal,tag=dragon_rework.crystalInit] at @s run tag @s add dragon_rework.crystal.invulnerable
