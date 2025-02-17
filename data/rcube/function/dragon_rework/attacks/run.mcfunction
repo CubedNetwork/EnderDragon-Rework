@@ -4,9 +4,12 @@
 # Called By: rcube:dragon_rework/dragon
 # Ran as: Entity, Ender Dragon
 
+# Skip end zombie if miniboss alive
+execute if entity @e[tag=dagonrework.miniboss,limit=1] if entity @s[scores={rcube_dragonRework.phase=2}] run scoreboard players add @s rcube_dragonRework.phase 1
+
 # Run attack
 execute if entity @s[scores={rcube_dragonRework.phase=1}] at @s run function rcube:dragon_rework/attacks/enderman_aggro/run
-execute if entity @s[scores={rcube_dragonRework.phase=2}] at @s run function rcube:dragon_rework/attacks/end_zombie
+execute if entity @s[scores={rcube_dragonRework.phase=2}] at @s unless entity @e[tag=dragon_rework.miniboss] run function rcube:dragon_rework/attacks/end_zombie
 execute if entity @s[scores={rcube_dragonRework.phase=3}] at @s run function rcube:dragon_rework/attacks/fireball
 execute if entity @s[scores={rcube_dragonRework.phase=4}] at @s run function rcube:dragon_rework/attacks/perch/run
 execute if entity @s[tag=dragon_rework.MAD,scores={rcube_dragonRework.phase=5}] at @s run function rcube:dragon_rework/attacks/teleport
