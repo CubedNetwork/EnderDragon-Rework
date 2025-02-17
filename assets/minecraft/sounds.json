@@ -6,7 +6,7 @@
 			{
 				"name": "minecraft:intentionally_empty",
 				"type": "event",
-				"stream": true
+				"steam": true
 			}
 		]
 	}
