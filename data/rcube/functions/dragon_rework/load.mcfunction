@@ -3,16 +3,6 @@
 #
 # Called By: #minecraft:load
 
-# Check dependencies
-function rcube:dragon_rework/deps
-
-# Set install state
-execute if data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value true
-execute unless data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value false
-
-# Setup prefix
-data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
-
 # Data
 scoreboard objectives add rcube_dragonRework.logout minecraft.custom:minecraft.leave_game "[rcube:dragon_rework] Logout"
 scoreboard objectives add rcube_dragonRework.timer.attacks dummy "[rcube:dragon_rework] Attack Timer"
@@ -43,6 +33,16 @@ scoreboard players set #num.73 rcube_dragonRework.const 73
 scoreboard players set #num.75 rcube_dragonRework.const 75
 # "Your Damage: DMG (Position #x)"
 scoreboard players set #num.132 rcube_dragonRework.const 132
+
+# Check dependencies
+function rcube:dragon_rework/deps
+
+# Set install state
+execute if data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value true
+execute unless data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value false
+
+# Setup prefix
+data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
 
 # Teams
 team add rcube.dragon_rework "[rcube:dragon_rework] Prevent Friendly Fire"
