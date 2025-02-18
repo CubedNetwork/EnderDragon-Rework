@@ -80,9 +80,10 @@ execute unless entity @e[tag=dragon_rework.dragonInit,type=minecraft:ender_drago
 
 # Miniboss Bossbars
 execute as @e[tag=dragon_rework.miniboss] at @s store result bossbar rcube:dragon_rework.miniboss value run data get entity @s Health
+execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss players
+execute if entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss players @a[predicate=rcube:dragon_rework/end_centre]
 execute if entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible true
 execute unless entity @e[tag=dragon_rework.miniboss] run bossbar set rcube:dragon_rework.miniboss visible false
-bossbar set rcube:dragon_rework.miniboss players @a
 
 # Tick Miniboss
 execute as @e[tag=dragon_rework.miniboss] at @s run function rcube:dragon_rework/attacks/miniboss/tick
