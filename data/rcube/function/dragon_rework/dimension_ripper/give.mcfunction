@@ -22,8 +22,7 @@ give @s poisonous_potato[ \
     minecraft:consumable={ \
         consume_seconds:2147483647, \
         animation:"none", \
-        sound:"minecraft:intentionally_empty",\
-        has_consume_particles:true \
+        sound:"minecraft:intentionally_empty", \
     }, \
     minecraft:food={ \
         "nutrition":0, \
