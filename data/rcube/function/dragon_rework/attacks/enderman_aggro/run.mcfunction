@@ -13,10 +13,10 @@ execute at @s if entity @s[tag=dragon_rework.UNHINGED] run scoreboard players se
 function rcube:dragon_rework/attacks/enderman_aggro/loop
 
 # Tell players who is being targeted
-tellraw @a ""
-execute if entity @s[tag=!dragon_rework.UNHINGED] as @a[tag=dragon_rework.enderman.VICTIM] run tellraw @a ["",{"text":">> ","color": "dark_red"},{"selector":"@s","color": "dark_red","bold": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
-execute if entity @s[tag=dragon_rework.UNHINGED] run tellraw @a ["",{"text":">> ","color": "dark_red"},{"text":"Everyone","color": "dark_red","bold": true,"underlined": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
-tellraw @a ""
+tellraw @a[predicate=rcube:dragon_rework/end_centre] ""
+execute if entity @s[tag=!dragon_rework.UNHINGED] as @a[tag=dragon_rework.enderman.VICTIM] run tellraw @a[predicate=rcube:dragon_rework/end_centre] ["",{"text":">> ","color": "dark_red"},{"selector":"@s","color": "dark_red","bold": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
+execute if entity @s[tag=dragon_rework.UNHINGED] run tellraw @a[predicate=rcube:dragon_rework/end_centre] ["",{"text":">> ","color": "dark_red"},{"text":"Everyone","color": "dark_red","bold": true,"underlined": true},{"text":" is being targeted by enderman! ","color": "red"},{"text":"<<","color": "dark_red"}]
+tellraw @a[predicate=rcube:dragon_rework/end_centre] ""
 
 # Remove stale data
 tag @a[tag=dragon_rework.enderman.VICTIM] remove dragon_rework.enderman.VICTIM
