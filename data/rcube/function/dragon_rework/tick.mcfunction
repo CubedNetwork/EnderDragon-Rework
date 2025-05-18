@@ -4,7 +4,7 @@
 # Ran as: Server
 
 # Save UUID
-execute as @e[tag=dragon_rework.arrowDodge] unless entity @s[tag=dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
+execute as @e[tag=dragon_rework.arrowManage] unless entity @s[tag=dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
 execute as @a[tag=!dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
 execute as @e[type=minecraft:arrow,nbt={inGround:false}] run function rcube:dragon_rework/uuid
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.storedUUID] run function rcube:dragon_rework/uuid
