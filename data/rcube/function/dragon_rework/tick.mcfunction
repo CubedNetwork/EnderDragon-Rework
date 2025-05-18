@@ -41,7 +41,7 @@ execute as @e[tag=dragon_rework.arrowManage,tag=!dragon_rework.arrowManage.ownAr
 # Remove Arrow
 execute as @e[tag=dragon_rework.arrowManage,tag=!dragon_rework.arrowManage.ownArrow] at @s run kill @e[type=minecraft:arrow,distance=..3.5,nbt={inGround:false}]
 # Randomise Direction
-execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run particle minecraft:reverse_portal ~ ~ ~ 0 0.125 0 0.2 500 normal
+execute as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run particle minecraft:portal ~ ~ ~ 0.2 0.7 0.1 0.3 500 normal
 execute if predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 1
 execute unless predicate rcube:dragon_rework/rng run scoreboard players set RNG.arrow rcube_dragonRework.store 0
 execute if score RNG.arrow rcube_dragonRework.store matches 0 as @e[tag=dragon_rework.arrowDodge,tag=!dragon_rework.arrowManage.ownArrow] at @s if entity @e[tag=dragon_rework.arrowDodge.arrow,distance=..3.5,type=minecraft:marker] run tp ^3 ^ ^-3
