@@ -142,3 +142,4 @@ advancement revoke @a[advancements={rcube:dragon_rework/kill_dragon=true}] only 
 
 # Remove tags
 tag @a[tag=dragon_rework.player.participated] remove dragon_rework.player.participated
+tag @a[tag=dragon_rework.player.damaged_dragon] remove dragon_rework.player.damaged_dragon
