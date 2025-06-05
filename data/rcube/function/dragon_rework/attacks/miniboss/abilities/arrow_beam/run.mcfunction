@@ -12,8 +12,8 @@ execute at @s if entity @s[tag=dragon_rework.minibossMAD] run scoreboard players
 scoreboard players set $arrow_beam.loop rcube_dragonRework.store 25
 execute if entity @e[tag=dragon_rework.miniboss,tag=dragon_rework.minibossMAD] run scoreboard players add $arrow_beam.loop rcube_dragonRework.store 10
 
-# Shoot arrows - some will bounce off players due to i-frames
-# Swap to custom damage type later with bypasses_cooldown
+# Shoot arrows - all arrows bypass iframes due to arrows in bypasses_cooldown
+# TODO: Swap to custom damage type with bypasses_cooldown
 function rcube:dragon_rework/attacks/miniboss/abilities/arrow_beam/loop
 
 # Cleanup
