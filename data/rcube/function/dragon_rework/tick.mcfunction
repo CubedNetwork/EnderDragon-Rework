@@ -16,6 +16,7 @@ execute as @e[type=minecraft:end_crystal,tag=!dragon_rework.crystalInit,predicat
 
 # Dragon Init
 execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data modify storage rcube:dragon_rework root.alive set value true
+execute if entity @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run team join rcube.dragon_rework
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.timer.attacks 800
 scoreboard players set @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] rcube_dragonRework.phase 1
 execute as @e[type=minecraft:ender_dragon,tag=!dragon_rework.dragonInit] run data merge entity @s {Health:500f,attributes:[{id:"max_health",base:500}]}
