@@ -182,7 +182,7 @@ execute unless entity @e[tag=dragon_rework.miniboss] as @e[tag=dragon_rework.min
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc] run schedule function rcube:dragon_rework/attacks/miniboss/death 30t append
 
 # #####################
-# Bed + Anchor Removal
+# Removal
 # #####################
 # Remove beds
 execute store success score success.bed rcube_dragonRework.store run fill ~8 ~8 ~8 ~-8 ~-8 ~-8 air replace #minecraft:beds
@@ -197,3 +197,6 @@ execute if score success.respawn_anchor rcube_dragonRework.store matches 1 run t
 execute if score success.respawn_anchor rcube_dragonRework.store matches 1 run title @a[distance=..20] title ""
 execute if score success.respawn_anchor rcube_dragonRework.store matches 1 run title @a[distance=..20] subtitle {"text":"All respawn anchors near dragon will be removed","color":"red"}
 execute if score success.respawn_anchor rcube_dragonRework.store matches 1 run scoreboard players set success.respawn_anchor rcube_dragonRework.store 0
+
+# Remove boats
+execute as @e[type=#rcube:dragon_rework/boat] at @s run function rcube:dragon_rework/boat_removal/type
