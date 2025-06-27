@@ -33,7 +33,7 @@ data modify storage rcube:api/centre_string root.in.manual set value true
 function rcube:api/centre_string/run
 
 # Output text
-tellraw @a[tag=dragon_rework.player.your_dmg.temp] ["",{"nbt":"root.out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.rank","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
+execute as @a[tag=dragon_rework.player.your_dmg.temp] run tellraw @s ["",{"nbt":"root.out[].array","storage":"rcube:api/centre_string","interpret":true,"separator":""},{"text":"Your Damage: ","color":"yellow"},{"score": {"objective": "rcube_dragonRework.death.damage.total", "name": "@s"},"color": "green"},{"text": " (Position #","color": "gray"},{"score": {"objective": "rcube_dragonRework.death.damage.rank","name": "@s"},"color": "gray"},{"text": ")","color": "gray"}]
 
 # #####################
 # Other
