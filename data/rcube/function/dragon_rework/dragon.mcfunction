@@ -170,13 +170,15 @@ execute if entity @s[scores={rcube_dragonRework.health=..125}] unless entity @s[
 execute if entity @s[tag=dragon_rework.UNHINGED] at @s run particle portal ~ ~ ~ 3 3 3 1 50 force
 
 # Handle invunerable
-execute if entity @e[tag=dragon_rework.miniboss] run data modify entity @s Invulnerable set value true
-execute at @s if entity @e[tag=dragon_rework.miniboss] run particle enchanted_hit ~ ~ ~ 3 3 3 1 25 force
-execute unless entity @e[tag=dragon_rework.miniboss] run data modify entity @s Invulnerable set value false
+execute if entity @s[tag=!dragon_rework.invulnerable] if entity @e[tag=dragon_rework.miniboss] run data modify entity @s Invulnerable set value true
+execute if entity @s[tag=!dragon_rework.invulnerable] if entity @e[tag=dragon_rework.miniboss] run tag @s add dragon_rework.invulnerable
+execute if entity @s[tag=dragon_rework.invulnerable] at @s run particle enchanted_hit ~ ~ ~ 3 3 3 1 25 force
+execute if entity @s[tag=dragon_rework.invulnerable] unless entity @e[tag=dragon_rework.miniboss] run data modify entity @s Invulnerable set value false
+execute if entity @s[tag=dragon_rework.invulnerable] unless entity @e[tag=dragon_rework.miniboss] run tag @s remove dragon_rework.invulnerable
 
 # Handle Miniboss Death
-execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[type=minecraft:end_crystal,tag=dragon_rework.crystal.invulnerable] run data modify entity @s Invulnerable set value false
-execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[tag=dragon_rework.crystal.invulnerable] run tag @s remove dragon_rework.crystal.invulnerable
+execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[type=minecraft:end_crystal,tag=dragon_rework.invulnerable] run data modify entity @s Invulnerable set value false
+execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] as @e[type=minecraft:end_crystal,tag=dragon_rework.invulnerable] run tag @s remove dragon_rework.invulnerable
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] run kill @e[tag=dragon_rework.miniboss.minion]
 execute unless entity @e[tag=dragon_rework.miniboss] as @e[tag=dragon_rework.miniboss.loc,tag=!dragon_rework.miniboss.dead] run tag @s add dragon_rework.miniboss.dead
 execute unless entity @e[tag=dragon_rework.miniboss] if entity @e[tag=dragon_rework.miniboss.loc] run schedule function rcube:dragon_rework/attacks/miniboss/death 30t append
