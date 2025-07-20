@@ -48,7 +48,7 @@ execute if data storage rcube:dragon_rework root{dependencies:[{all:true}]} run 
 execute unless data storage rcube:dragon_rework root{dependencies:[{all:true}]} run data modify storage rcube:dragon_rework root.installed set value false
 
 # Setup prefix
-data modify storage rcube:dragon_rework root.prefix set value [{array:'{"text": "Dragon Rework","color": "light_purple"}'},{array:'{"text": " > ","color": "gray"}'}]
+data modify storage rcube:dragon_rework root.prefix set value [{array:{"text": "Dragon Rework","color": "light_purple"}},{array:{"text": " > ","color": "gray"}}]
 
 # Teams
 team add rcube.dragon_rework "[rcube:dragon_rework] Prevent Friendly Fire"

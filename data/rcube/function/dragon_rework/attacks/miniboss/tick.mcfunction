@@ -94,38 +94,41 @@ execute if entity @s[tag=dragon_rework.minibossMAD] at @s anchored feet rotated 
 # Buff Gear
 # #####################
 
-execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run data merge entity @s {\
-    HandItems:[\
-        {id:"minecraft:bow",count:1,components:{\
-            "minecraft:custom_name":'["",{"text":"The Bow of Old","italic":false,"color":"dark_purple"}]',\
-            "minecraft:enchantments":{levels:{\
-                "minecraft:power":8,"minecraft:punch":4,flame:1,infinity:1}},\
-            "minecraft:unbreakable":{show_in_tooltip:false}}},\
-        {}\
-    ],ArmorItems:[\
-        {id:"minecraft:leather_boots",count:1,components:{\
-            "minecraft:dyed_color":1908001,\
-            "minecraft:enchantments":{levels:{\
-                "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6,"minecraft:feather_falling":255}},\
-            "minecraft:unbreakable":{show_in_tooltip:false}}},\
-        {id:"minecraft:leather_leggings",count:1,components:{\
-            "minecraft:dyed_color":1908001,\
-            "minecraft:enchantments":{levels:{\
-                "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6}},\
-            "minecraft:unbreakable":{show_in_tooltip:false}}},\
-        {id:"minecraft:leather_chestplate",count:1,components:{\
-            "minecraft:dyed_color":1908001,\
-            "minecraft:enchantments":{levels:{\
-                "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6}},\
-            "minecraft:unbreakable":{show_in_tooltip:false}}},\
-        {id:"minecraft:player_head",components:{\
-            "minecraft:enchantments":{levels:{\
-                "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6}},\
-            "minecraft:profile":{properties:[{\
-                name:"textures",\
-                value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmJjZjNmNTc4NzE5NmQyNTZjMTA0ZmZmYWU4ZTUyNjUyNDIyMjJlMjEzOGE1N2ExNjY2YzE1YjVmNmM4N2I5OCJ9fX0="}],\
-                id:[I;1658453630,1781350791,-1964493527,-2123315747]},\
-            "minecraft:unbreakable":{show_in_tooltip:false}}}]}
+execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s weapon.mainhand with minecraft:bow[\
+    minecraft:custom_name={"text":"The Bow of Old","italic":false,"color":"dark_purple"},\
+    minecraft:enchantments={\
+        "minecraft:power":8,"minecraft:punch":4,flame:1,infinity:1},\
+    minecraft:unbreakable={},\
+    minecraft:tooltip_display={hidden_components:["minecraft:unbreakable"]}]
+execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s weapon.offhand with air
+execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s armor.head with minecraft:player_head[\
+    minecraft:enchantments={\
+        "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6},\
+    minecraft:profile={\
+        properties:[{\
+            name:"textures",\
+            value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmJjZjNmNTc4NzE5NmQyNTZjMTA0ZmZmYWU4ZTUyNjUyNDIyMjJlMjEzOGE1N2ExNjY2YzE1YjVmNmM4N2I5OCJ9fX0="\
+        }],id:[I;1658453630,1781350791,-1964493527,-2123315747]},\
+    minecraft:unbreakable={},\
+    minecraft:tooltip_display={hidden_components:["minecraft:unbreakable"]}]
+    execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s armor.chest with minecraft:leather_chestplate[\
+    minecraft:dyed_color=1908001,\
+    minecraft:enchantments={\
+        "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6},\
+    minecraft:unbreakable={},\
+    minecraft:tooltip_display={hidden_components:["minecraft:unbreakable"]}]
+execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s armor.legs with minecraft:leather_leggings[\
+    minecraft:dyed_color=1908001,\
+    minecraft:enchantments={\
+        "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6},\
+    minecraft:unbreakable={},\
+    minecraft:tooltip_display={hidden_components:["minecraft:unbreakable"]}]
+execute if score $miniboss.MAD rcube_dragonRework.store matches 1 unless entity @s[tag=dragon_rework.minibossMAD] run item replace entity @s armor.feet with minecraft:leather_boots[\
+    minecraft:dyed_color=1908001,\
+    minecraft:enchantments={\
+        "minecraft:protection":7,"minecraft:blast_protection":255,"minecraft:fire_protection":255,"minecraft:projectile_protection":255,"minecraft:thorns":6,"minecraft:feather_falling":255},\
+    minecraft:unbreakable={},\
+    minecraft:tooltip_display={hidden_components:["minecraft:unbreakable"]}]
 
 # #####################
 # Effects

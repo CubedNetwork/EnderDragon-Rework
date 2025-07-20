@@ -20,7 +20,7 @@ execute if predicate rcube:api/_core/installed if data storage rcube:api/core ro
 
 # Set state
 execute if predicate rcube:api/_core/installed if data storage rcube:api/core root{installed:true} if score $ver.core.major rcube_dragonRework.deps matches 0 if score $ver.core.game.major rcube_dragonRework.deps matches 21 if score $ver.core.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"core",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'core\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"core",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"core",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'core'","color":"gray"}]}
 
 
 # #####################
@@ -36,7 +36,7 @@ execute if predicate rcube:api/centre_string/installed if data storage rcube:api
 
 # Set state
 execute if predicate rcube:api/centre_string/installed if data storage rcube:api/centre_string root{installed:true} if score $ver.centre_string.major rcube_dragonRework.deps matches 0 if score $ver.centre_string.game.major rcube_dragonRework.deps matches 21 if score $ver.centre_string.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"centre_string",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'centre_string\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"centre_string",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"centre_string",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'centre_string'","color":"gray"}]}
 
 
 # #####################
@@ -52,7 +52,7 @@ execute if predicate rcube:api/damage_taken/installed if data storage rcube:api/
 
 # Set state
 execute if predicate rcube:api/damage_taken/installed if data storage rcube:api/damage_taken root{installed:true} if score $ver.damage_taken.major rcube_dragonRework.deps matches 0 if score $ver.damage_taken.game.major rcube_dragonRework.deps matches 21 if score $ver.damage_taken.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_taken",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"damage_taken",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_taken",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'damage_taken\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"damage_taken",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"damage_taken",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'damage_taken'","color":"gray"}]}
 
 # #####################
 # Module 'player_name'
@@ -67,7 +67,7 @@ execute if predicate rcube:api/player_name/installed if data storage rcube:api/p
 
 # Set state
 execute if predicate rcube:api/player_name/installed if data storage rcube:api/player_name root{installed:true} if score $ver.player_name.major rcube_dragonRework.deps matches 0 if score $ver.player_name.game.major rcube_dragonRework.deps matches 21 if score $ver.player_name.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"player_name",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'player_name\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"player_name",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"player_name",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'player_name'","color":"gray"}]}
 
 
 # #####################
@@ -83,7 +83,7 @@ execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_ca
 
 # Set state
 execute if predicate rcube:api/px_calc/installed if data storage rcube:api/px_calc root{installed:true} if score $ver.px_calc.major rcube_dragonRework.deps matches 0 if score $ver.px_calc.game.major rcube_dragonRework.deps matches 21 if score $ver.px_calc.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"px_calc",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'px_calc\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"px_calc",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"px_calc",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'px_calc'","color":"gray"}]}
 
 
 # #####################
@@ -99,7 +99,7 @@ execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:a
 
 # Set state
 execute if predicate rcube:api/scoreboard_rank/installed if data storage rcube:api/scoreboard_rank root{installed:true} if score $ver.scoreboard_rank.major rcube_dragonRework.deps matches 0 if score $ver.scoreboard_rank.game.major rcube_dragonRework.deps matches 21 if score $ver.scoreboard_rank.game.patch rcube_dragonRework.deps matches 2 run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:true}
-execute unless data storage rcube:dragon_rework root.dependencies[{module:"scoreboard_rank",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:false,missing:'[{"text":"   - ","color":"dark_gray"},{"text":"Module \'scoreboard_rank\'","color":"gray"}]'}
+execute unless data storage rcube:dragon_rework root.dependencies[{module:"scoreboard_rank",installed:true}] run data modify storage rcube:dragon_rework root.dependencies append value {module:"scoreboard_rank",installed:false,missing:[{"text":"   - ","color":"dark_gray"},{"text":"Module 'scoreboard_rank'","color":"gray"}]}
 
 # #####################
 # Check if all dependencies are installed 
